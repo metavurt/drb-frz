@@ -2,14 +2,17 @@
 
 require "vendor/autoload.php";
 
-$app = new \Slim\Slim();
+require 'Slim/Slim.php';
+\Slim\Slim::registerAutoloader();
 
+$app = new \Slim\Slim();
 
 $app->get('/hello/:name', function ($name) {
     echo "Hello, $name";
 });
 
 
+/*
 $app->get('/:w/:t', function () use ($app) {
 	require_once 'php/zj.php';
 	require_once 'php/drbfz.php';
@@ -34,6 +37,8 @@ $app->get('/:w/:t', function () use ($app) {
 			)
 	);
 });
+
+*/
 
 $app->run();
 
