@@ -2,20 +2,12 @@
 
 require "vendor/autoload.php";
 
-// require 'Slim/Slim.php';
-// \Slim\Slim::registerAutoloader();
-
 $app = new \Slim\Slim();
 
 $app->config(array(
     'debug' => true,
     'templates.path' => 'templates'
 ));
-
-// $app->get('/hello/:name', function ($name) {
-//     echo "Hello, $name";
-// });
-
 
 $app->get('/', function () use ($app) {
 
@@ -37,14 +29,9 @@ $app->get('/', function () use ($app) {
 		$data[] = $row;
 	}
 
-	$app->render('standings.php', array(
-		'page_title' => 'DRB Team Standings', 
-		'data' => $data
-			)
-	);
+	$app->render('standings.php', array('page_title' => 'DRB Team Standings','data' => $data));
+	
 });
-
-
 
 $app->run();
 
