@@ -12,34 +12,28 @@
 <body>
 
 <div class="row">
-	<div class="large-12 small-12 columns">
-		<table>
-			<thead>
-			<tr>
-				<th>Team</th>
-				<th>Game 1</th>
-				<th>Game 2</th>
-				<th>Game 3</th>
-				<th>Total Pins</th>
-			</tr>
-			</thead>
-			<tbody>
+	<div class="large-12 small-12 alpha-horizontal omega-horizontal columns">
+		<div class="row">
+			<div class="small-5 columns">Team</div>
+			<div class="small-1 columns text-center">1</div>
+			<div class="small-1 columns text-center">2</div>
+			<div class="small-1 columns text-center">3</div>
+			<div class="small-4 columns text-center">Total Pins</div>
+		</div>
 
 <?php
 
 	foreach ($this->data['data'] as $teamData) { 
-		echo "<tr>\n\t";
-		echo "<td>".$teamData['TeamName']."</td>\n\t";
-		echo "<td>".$teamData['Game1']."</td>\n\t";
-		echo "<td>".$teamData['Game2']."</td>\n\t";
-		echo "<td>".$teamData['Game3']."</td>\n\t";
-		echo "<td>".$teamData['TotalPins']."</td>\n";
-		echo "</tr>\n";
+		echo "<div class='row'>\n\t";
+		echo "<div class='small-5 columns'>".$teamData['TeamName']."</div>\n\t";
+		echo "<div class='small-1 columns text-center'>".$teamData['Game1']."</div>\n\t";
+		echo "<div class='small-1 columns text-center'>".$teamData['Game2']."</div>\n\t";
+		echo "<div class='small-1 columns text-center'>".$teamData['Game3']."</div>\n\t";
+		echo "<div class='small-4 columns text-center'>".$teamData['TotalPins']."</div>\n";
+		echo "</div>\n";
 	}
 
 ?>
-			</tbody>
-		</table>
 
 	</div>
 </div>
