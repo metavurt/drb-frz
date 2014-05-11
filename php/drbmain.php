@@ -26,19 +26,5 @@ function getTeamHandicapGameSingleTotal($tid, $wid, $gnum) {
 
 }
 
-function getTeamHandicapPinTotalWeek($tid, $wid) {
-
-
-}
-
-
-function getPlayerHandicapPinTotal($pid) {
-
-	
-}
-
-
-
-
 
 ?>
