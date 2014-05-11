@@ -12,15 +12,30 @@
 
 <div class="row">
 	<div class="large-12 small-12 columns panel">
+		<table>
+			<tr>
+				<th>Team</th>
+				<th>Game 1</th>
+				<th>Game 2</th>
+				<th>Game 3</th>
+				<th>Total Pins</th>
+			</tr>
 
 <?php
 
-foreach ($this->data['data'] as $total) {
-	echo $total['gTotal'].'</br />';
-}
-
+	foreach ($this->data['data'] as $teamData) { 
+		echo "<tr>\n\t";
+		echo "<td>".$teamData['TeamName']."</td>\n\t";
+		echo "<td>".$teamData['Game1']."</td>\n\t";
+		echo "<td>".$teamData['Game2']."</td>\n\t";
+		echo "<td>".$teamData['Game3']."</td>\n\t";
+		echo "<td>".$teamData['TotalPins']."</td>\n";
+		echo "</tr>\n";
+	}
 
 ?>
+	
+		</table>
 
 	</div>
 </div>

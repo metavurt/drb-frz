@@ -21,22 +21,24 @@ $app->get('/', function () use ($app) {
 
 	require_once 'php/drbfz.php';
 	$db = connect_db();
-	$c = 0;
 
-	$r = $db->query('SELECT SUM(bnp_stats.g1 + bnp_stats.hnd) AS gTotal
+	$r = $db->query('SELECT tname AS TeamName, bnp_teams.tid, SUM(bnp_stats.g1 + bnp_stats.hnd) AS Game1,
+				SUM(bnp_stats.g2 + bnp_stats.hnd) AS Game2,
+                SUM(bnp_stats.g3 + bnp_stats.hnd) AS Game3,
+                SUM(bnp_stats.g1 + bnp_stats.g2 + bnp_stats.g3 + (bnp_stats.hnd * 3)) AS TotalPins
 		FROM bnp_teams
 			JOIN bnp_players
-				ON bnp_players.tid = bnp_teams.tid
+            	ON bnp_players.tid = bnp_teams.tid
 			JOIN bnp_stats
 				ON bnp_stats.pid = bnp_players.pid
-		WHERE bnp_teams.tid = 1 AND bnp_stats.wid = 1' );
+		WHERE bnp_stats.wid = 1 GROUP BY bnp_teams.tid ORDER BY TotalPins DESC' );
 
 	while ( $row = $r->fetch_array(MYSQLI_ASSOC) ) {
 		$data[] = $row;
 	}
 
 	$app->render('standings.php', array(
-		'page_title' => 'your mom', 
+		'page_title' => 'DRB Team Standings', 
 		'data' => $data
 			)
 	);
