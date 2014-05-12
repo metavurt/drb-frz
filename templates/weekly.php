@@ -12,7 +12,7 @@
 <body>
 
 <div class="row">
-	<div class="large-12 small-12 columns">
+	<div class="large-12 small-12 alpha-horizontal omega-horizontal columns">
 		<div class="row">
 			<div class="small-5 columns">Team</div>
 			<div class="small-1 columns text-center">1</div>
@@ -37,12 +37,11 @@
 
 	</div>
 </div>
-
-<script src="../drb/js/vendor/jquery.js"></script>
-<script src="../drb/js/foundation.min.js"></script>
-<script>
-  $(document).foundation();
-</script>
+    <script src="../drb/js/vendor/jquery.js"></script>
+    <script src="../drb/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
 
 </body>
 </html>
