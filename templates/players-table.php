@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title><?php echo $this->data['page_title']; ?></title>
-    <link rel="stylesheet" href="../drb/css/foundation.css" />
-    <link rel="stylesheet" href="../drb/css/drbfz.css" />
-    <script src="../drb/js/vendor/modernizr.js"></script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/drbfz.css" />
+    <script src="../js/vendor/modernizr.js"></script>
 </head>
 
 <body>
@@ -39,11 +39,11 @@
 					<thead>
 						<tr>
 							<th></th>
-							<th>Team</th>
-							<th class="text-center">W</th>
-							<th class="text-center">L</th>
-							<th class="text-center">PCT</th>
-							<th class="text-center">Total Pins</th>
+							<th>Player</th>
+							<th class="text-center">Pins</th>
+							<th class="text-center">Games</th>
+							<th class="text-center">Avg</th>
+							<th class="text-center">H*</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -52,14 +52,14 @@
 						
 						$c = 1;
 
-						foreach ($this->data['data'] as $teamData) { 
+						foreach ($this->data['data'] as $playerData) { 
 							echo "<tr>\n\t";
 							echo "<td>".$c."</td>\n\t";
-							echo "<td>".$teamData['tname']."</td>\n\t";
-							echo "<td class='text-center'>".$teamData['wins']."</td>\n\t";
-							echo "<td class='text-center'>".$teamData['loss']."</td>\n\t";
-							echo "<td class='text-center'>".$teamData['pcnt']."</td>\n\t";
-							echo "<td class='text-center'>".$teamData['tpins']."</td>\n";
+							echo "<td>".$playerData['pname']."</td>\n\t";
+							echo "<td class='text-center'>".$playerData['tpins']."</td>\n\t";
+							echo "<td class='text-center'>".$playerData['gms']."</td>\n\t";
+							echo "<td class='text-center'>".$playerData['avgs']."</td>\n\t";
+							echo "<td class='text-center'>".$playerData['hnd']."</td>\n";
 							echo "</tr>\n";
 							$c++;
 						}
@@ -75,8 +75,8 @@
 </div>
 
 
-<script src="../drb/js/vendor/jquery.js"></script>
-<script src="../drb/js/foundation.min.js"></script>
+<script src="../js/vendor/jquery.js"></script>
+<script src="../js/foundation.min.js"></script>
 <script>
   $(document).foundation();
 </script>

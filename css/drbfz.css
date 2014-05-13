@@ -35,6 +35,10 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
 	height: 100%;
 }
 
+.off-canvas-wrap {
+	overflow-y: auto;
+}
+
 /****************************************************
 	3. Navigation
 ****************************************************/
