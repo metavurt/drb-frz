@@ -19,16 +19,15 @@ $app->get('/', function () use ($app) {
 	require_once 'php/drbfz.php';
 	$db = connect_db();
 
-	$r = $db->query('SELECT tname AS TeamName, bnp_teams.tid, SUM(bnp_stats.g1 + bnp_stats.hnd) AS Game1,
-				SUM(bnp_stats.g2 + bnp_stats.hnd) AS Game2,
-                SUM(bnp_stats.g3 + bnp_stats.hnd) AS Game3,
-                SUM(bnp_stats.g1 + bnp_stats.g2 + bnp_stats.g3 + (bnp_stats.hnd * 3)) AS TotalPins
-		FROM bnp_teams
-			JOIN bnp_players
-            	ON bnp_players.tid = bnp_teams.tid
-			JOIN bnp_stats
-				ON bnp_stats.pid = bnp_players.pid
-		WHERE bnp_stats.wid = 1 GROUP BY bnp_teams.tid ORDER BY TotalPins DESC' );
+	$r = $db->query('SELECT bnp_teams.tid, tname,
+					SUM(twins) as wins, sum(tloss) as loss,
+					FORMAT(100 * SUM(twins)/(SUM(twins) + SUM(tloss)), 2) as pcnt,
+					SUM(tpins) as tpins
+					FROM bnp_teams
+					JOIN bnp_points
+					ON bnp_points.tid = bnp_teams.tid
+					GROUP BY tid
+					ORDER BY wins DESC, tpins DESC' );
 
 	while ( $row = $r->fetch_array(MYSQLI_ASSOC) ) {
 		$data[] = $row;
@@ -38,31 +37,46 @@ $app->get('/', function () use ($app) {
 	
 });
 
-$app->get('/hello/:name', function ($name) {
-	echo "hello, how are ya, $name";
-});
-
-$app->get('/wk/:week', function ($week) {
-
+$app->get('/players', function () use ($app) {
+	
 	require_once 'php/drbfz.php';
 	$db = connect_db();
 
-	$r = $db->query('SELECT tname AS TeamName, bnp_teams.tid, SUM(bnp_stats.g1 + bnp_stats.hnd) AS Game1,
-				SUM(bnp_stats.g2 + bnp_stats.hnd) AS Game2,
-                SUM(bnp_stats.g3 + bnp_stats.hnd) AS Game3,
-                SUM(bnp_stats.g1 + bnp_stats.g2 + bnp_stats.g3 + (bnp_stats.hnd * 3)) AS TotalPins
-		FROM bnp_teams
-			JOIN bnp_players
-            	ON bnp_players.tid = bnp_teams.tid
-			JOIN bnp_stats
-				ON bnp_stats.pid = bnp_players.pid
-		WHERE bnp_stats.wid = $week GROUP BY bnp_teams.tid ORDER BY TotalPins DESC' );
+	$r = $db->query('SELECT bnp_players.pid, pname, SUM(g1 + g2 + g3) as tpins, COUNT(wid)*3 as gms,
+					ROUND(SUM(g1 + g2 + g3)/(COUNT(wid)*3), 0) as avgs,
+					ROUND(SUM(hnd)/COUNT(wid), 0) as hnd
+					FROM bnp_players
+					JOIN bnp_stats
+					ON bnp_stats.pid = bnp_players.pid
+					GROUP BY pid');
 
 	while ( $row = $r->fetch_array(MYSQLI_ASSOC) ) {
 		$data[] = $row;
 	}
 
-	$app->render('weekly.php', array('page_title' => 'DRB Week Standings','data' => $data));	
+	$app->render('players-table.php', array('page_title' => 'DRB Player Stats','data' => $data));
+
+});
+
+$app->get('/tm/:team', function ($team) use ($app) {
+
+	require_once './php/drbfz.php';
+	$db = connect_db();
+
+	$r = $db->query('SELECT bnp_players.pid, pname, SUM(g1 + g2 + g3) as tpins, COUNT(wid)*3 as gms,
+					ROUND(SUM(g1 + g2 + g3)/(COUNT(wid)*3), 0) as avgs,
+					ROUND(SUM(hnd)/COUNT(wid), 0) as hnd
+					FROM bnp_players
+					JOIN bnp_stats
+					ON bnp_stats.pid = bnp_players.pid
+					WHERE bnp_players.tid = 1
+					GROUP BY pid');
+
+	while ( $row = $r->fetch_array(MYSQLI_ASSOC) ) {
+		$data[] = $row;
+	}
+
+	$app->render('teams-table.php', array('page_title' => 'DRB Team Stats '.$team,'data' => $data));
 
 });
 

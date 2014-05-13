@@ -1,0 +1,2 @@
+[11-May-2014 21:04:37 America/Chicago] PHP Fatal error:  Using $this when not in object context in /home/weo3/public_html/drb/templates/standings.php on line 6
+[11-May-2014 21:04:40 America/Chicago] PHP Fatal error:  Using $this when not in object context in /home/weo3/public_html/drb/templates/weekly.php on line 6
