@@ -100,7 +100,7 @@ $app->get('/team/:team', function ($team) use ($app) {
 		$data[] = $row;
 	}
 
-	$app->render('team.php', array('page_title' => 'DRB Team Stats '.$data['tname'], 'team_title' => $data['tname'], 'data' => $data));
+	$app->render('team.php', array('page_title' => 'DRB Team Stats', 'data' => $data));
 
 });
 

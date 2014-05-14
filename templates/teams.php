@@ -48,7 +48,7 @@
 
 						foreach ($this->data['data'] as $teamData) { 
 							echo "<tr>\n\t";
-							echo "<td class='text-center'><a href='/drb/index.php/team/".$teamData['tid']."'>".$teamData['tname']."</a></td>\n\t";
+							echo "<td class='text-center'><a href='/drb/index.php/team/".$teamData['tid']."'>".$teamData['TeamName']."</a></td>\n\t";
 							echo "</tr>\n";
 							$c++;
 						}

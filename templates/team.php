@@ -26,7 +26,7 @@
         <aside class="left-off-canvas-menu drb-bg-drd">
             <ul class="off-canvas-list">
                 <li><a href="/drb/">Weekly Standings</a></li>
-                <li><a href="/drb/index.php/tms">Teams</a></li>
+                <li><a href="/drb/index.php/teams">Teams</a></li>
                 <li><a href="/drb/index.php/players">Players</a></li>
             </ul>
         </aside>
@@ -35,7 +35,7 @@
             <!-- MAIN CONTENT GOES HERE -->
             <div class="row">
 				<div class="large-12 small-12 alpha-horizontal omega-horizontal text-center columns">
-					<h2>TEAM: <?php echo $this->data['team_title']; ?></h2>
+					<h2>TEAM: <?php echo $this->data['data']['tname']; ?></h2>
 				</div>
 			</div>
 

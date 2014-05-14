@@ -26,13 +26,16 @@
         <aside class="left-off-canvas-menu drb-bg-drd">
             <ul class="off-canvas-list">
                 <li><a href="/drb/">Weekly Standings</a></li>
-                <li><a href="index.php/hello/teams">Teams</a></li>
+                <li><a href="index.php/teams">Teams</a></li>
                 <li><a href="/drb/index.php/players">Players</a></li>
             </ul>
         </aside>
 
         <section class="main-section">
             <!-- MAIN CONTENT GOES HERE -->
+            <div class="row">
+            	<div class="large-6 small-6 alpha-horizontal columns">
+            		<h3>GAME HIGH: <?php echo $this->data['player_high']; ?></h3>
 			<div class="row">
 				<div class="large-12 small-12 alpha-horizontal omega-horizontal columns">
 					<table class="drb-standings">
