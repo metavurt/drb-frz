@@ -26,8 +26,8 @@
         <aside class="left-off-canvas-menu drb-bg-drd">
             <ul class="off-canvas-list">
                 <li><a href="/drb/">Weekly Standings</a></li>
-                <li><a href="index.php/hello/teams">Teams</a></li>
-                <li><a href="index.php/players">Players</a></li>
+<!--                 <li><a href="index.php/teams/">Teams</a></li> -->
+                <li><a href="/drb/index.php/players">Players</a></li>
             </ul>
         </aside>
 
@@ -55,7 +55,7 @@
 						foreach ($this->data['data'] as $teamData) { 
 							echo "<tr>\n\t";
 							echo "<td>".$c."</td>\n\t";
-							echo "<td>".$teamData['tname']."</td>\n\t";
+							echo "<td><a href='/drb/index.php/tm/".$teamData['tid']."'>".$teamData['tname']."</a></td>\n\t";
 							echo "<td class='text-center'>".$teamData['wins']."</td>\n\t";
 							echo "<td class='text-center'>".$teamData['loss']."</td>\n\t";
 							echo "<td class='text-center'>".$teamData['pcnt']."</td>\n\t";

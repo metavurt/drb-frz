@@ -60,7 +60,7 @@ $app->get('/players', function () use ($app) {
 
 $app->get('/tm/:team', function ($team) use ($app) {
 
-	require_once './php/drbfz.php';
+	require_once 'php/drbfz.php';
 	$db = connect_db();
 
 	$r = $db->query('SELECT bnp_players.pid, pname, SUM(g1 + g2 + g3) as tpins, COUNT(wid)*3 as gms,
@@ -69,7 +69,7 @@ $app->get('/tm/:team', function ($team) use ($app) {
 					FROM bnp_players
 					JOIN bnp_stats
 					ON bnp_stats.pid = bnp_players.pid
-					WHERE bnp_players.tid = 1
+					WHERE bnp_players.tid = '.$team.'
 					GROUP BY pid');
 
 	while ( $row = $r->fetch_array(MYSQLI_ASSOC) ) {
