@@ -1,13 +1,29 @@
 <?php
+/** 
+ * APILogWriter: Custom log writer for our application
+ *
+ * We must implement write(mixed $message, int $level)
+*/
+class APILogWriter {
+	public function write($message, $level = \Slim\Log::DEBUG) {
+		# Simple for now
+		echo $level.': '.$message.'<br />';
+	}
+}
 
+# Load the Slim framework
 require "vendor/autoload.php";
 
 $app = new \Slim\Slim();
 
+# Fire up an app
 $app->config(array(
-	'debug' => true,
-    'templates.path' => 'templates'
-));
+		'mode' => 'development',
+		'debug' => true,
+	    'templates.path' => 'templates',
+		'log.writer' => new APILogWriter()
+	)
+);
 
 $log = $app->getLog();
 $log->setLevel(\Slim\Log::DEBUG);
@@ -55,6 +71,14 @@ $app->get('/players', function () use ($app) {
 	}
 
 	$app->render('players-table.php', array('page_title' => 'DRB Player Stats','data' => $data));
+
+});
+
+$app->get('/view/(:id)', function($id) use ($app) {
+	require_once 'php/drbfz.php';
+	$db = connect_db();
+
+	
 
 });
 

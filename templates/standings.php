@@ -11,32 +11,69 @@
 
 <body>
 
-<div class="row">
-	<div class="large-12 small-12 columns">
-		<div class="row">
-			<div class="small-5 columns">Team</div>
-			<div class="small-1 columns text-center">1</div>
-			<div class="small-1 columns text-center">2</div>
-			<div class="small-1 columns text-center">3</div>
-			<div class="small-4 columns text-center">Total Pins</div>
-		</div>
+<div class="off-canvas-wrap" data-offcanvas="">
+    <div class="inner-wrap">
+        <nav class="tab-bar drb-bg-red">
+            <section class="left-small">
+                <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+            </section>
 
-<?php
+            <section class="middle tab-bar-section">
+                <h1 class="title">DRB Thur Mixed</h1>
+            </section>
+        </nav>
 
-	foreach ($this->data['data'] as $teamData) { 
-		echo "<div class='row'>\n\t";
-		echo "<div class='small-5 columns'>".$teamData['TeamName']."</div>\n\t";
-		echo "<div class='small-1 columns text-center'>".$teamData['Game1']."</div>\n\t";
-		echo "<div class='small-1 columns text-center'>".$teamData['Game2']."</div>\n\t";
-		echo "<div class='small-1 columns text-center'>".$teamData['Game3']."</div>\n\t";
-		echo "<div class='small-4 columns text-center'>".$teamData['TotalPins']."</div>\n";
-		echo "</div>\n";
-	}
+        <aside class="left-off-canvas-menu drb-bg-drd">
+            <ul class="off-canvas-list">
+                <li><a href="/drb/">Weekly Standings</a></li>
+<!--                 <li><a href="index.php/teams/">Teams</a></li> -->
+                <li><a href="/drb/index.php/players">Players</a></li>
+            </ul>
+        </aside>
 
-?>
+        <section class="main-section">
+            <!-- MAIN CONTENT GOES HERE -->
+			<div class="row">
+				<div class="large-12 small-12 alpha-horizontal omega-horizontal columns">
+					<table class="drb-standings">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Team</th>
+							<th class="text-center">W</th>
+							<th class="text-center">L</th>
+							<th class="text-center">PCT</th>
+							<th class="text-center">Total Pins</th>
+						</tr>
+					</thead>
+					<tbody>
 
-	</div>
+					<?php
+						
+						$c = 1;
+
+						foreach ($this->data['data'] as $teamData) { 
+							echo "<tr>\n\t";
+							echo "<td>".$c."</td>\n\t";
+							echo "<td><a href='/drb/index.php/tm/".$teamData['tid']."'>".$teamData['tname']."</a></td>\n\t";
+							echo "<td class='text-center'>".$teamData['wins']."</td>\n\t";
+							echo "<td class='text-center'>".$teamData['loss']."</td>\n\t";
+							echo "<td class='text-center'>".$teamData['pcnt']."</td>\n\t";
+							echo "<td class='text-center'>".$teamData['tpins']."</td>\n";
+							echo "</tr>\n";
+							$c++;
+						}
+
+					?>
+					</tbody>
+					</table>
+				</div>
+			</div>
+
+        </section><a class="exit-off-canvas"></a>
+    </div>
 </div>
+
 
 <script src="../drb/js/vendor/jquery.js"></script>
 <script src="../drb/js/foundation.min.js"></script>
