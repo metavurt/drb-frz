@@ -26,7 +26,6 @@
         <aside class="left-off-canvas-menu drb-bg-drd">
             <ul class="off-canvas-list">
                 <li><a href="/drb/">Weekly Standings</a></li>
-<!--                 <li><a href="/drb/index.php/teams">Teams</a></li> -->
                 <li><a href="/drb/index.php/players">Players</a></li>
             </ul>
         </aside>
@@ -38,12 +37,7 @@
 					<table class="drb-standings">
 					<thead>
 						<tr>
-							<th></th>
-							<th>Player</th>
-							<th class="text-center">Pins</th>
-							<th class="text-center">Games</th>
-							<th class="text-center">Avg</th>
-							<th class="text-center">H*</th>
+							<th class="text-center">Teams</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -52,14 +46,9 @@
 						
 						$c = 1;
 
-						foreach ($this->data['data'] as $playerData) { 
+						foreach ($this->data['data'] as $teamData) { 
 							echo "<tr>\n\t";
-							echo "<td>".$c."</td>\n\t";
-							echo "<td>".$playerData['pname']."</td>\n\t";
-							echo "<td class='text-center'>".$playerData['tpins']."</td>\n\t";
-							echo "<td class='text-center'>".$playerData['gms']."</td>\n\t";
-							echo "<td class='text-center'>".$playerData['avgs']."</td>\n\t";
-							echo "<td class='text-center'>".$playerData['hnd']."</td>\n";
+							echo "<td class='text-center'><a href='/drb/index.php/team/".$teamData['tid']."'>".$teamData['tname']."</a></td>\n\t";
 							echo "</tr>\n";
 							$c++;
 						}
