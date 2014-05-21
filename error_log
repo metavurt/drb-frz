@@ -1,11 +1,1 @@
-[14-May-2014 14:07:46 America/Chicago] PHP Fatal error:  Call to undefined method Slim\Log::writer() in /home/weo3/public_html/drb/index.php on line 35
-[14-May-2014 15:03:35 America/Chicago] PHP Fatal error:  Call to a member function fetch_array() on a non-object in /home/weo3/public_html/drb/index.php on line 117
-[14-May-2014 15:03:42 America/Chicago] PHP Fatal error:  Call to a member function fetch_array() on a non-object in /home/weo3/public_html/drb/index.php on line 117
-[14-May-2014 15:03:43 America/Chicago] PHP Fatal error:  Call to a member function fetch_array() on a non-object in /home/weo3/public_html/drb/index.php on line 117
-[14-May-2014 15:03:43 America/Chicago] PHP Fatal error:  Call to a member function fetch_array() on a non-object in /home/weo3/public_html/drb/index.php on line 117
-[14-May-2014 15:03:43 America/Chicago] PHP Fatal error:  Call to a member function fetch_array() on a non-object in /home/weo3/public_html/drb/index.php on line 117
-[14-May-2014 15:03:43 America/Chicago] PHP Fatal error:  Call to a member function fetch_array() on a non-object in /home/weo3/public_html/drb/index.php on line 117
-[14-May-2014 15:03:43 America/Chicago] PHP Fatal error:  Call to a member function fetch_array() on a non-object in /home/weo3/public_html/drb/index.php on line 117
-[14-May-2014 15:03:43 America/Chicago] PHP Fatal error:  Call to a member function fetch_array() on a non-object in /home/weo3/public_html/drb/index.php on line 117
-[14-May-2014 15:06:31 America/Chicago] PHP Fatal error:  Call to a member function fetch_array() on a non-object in /home/weo3/public_html/drb/index.php on line 117
-[14-May-2014 15:06:33 America/Chicago] PHP Fatal error:  Call to a member function fetch_array() on a non-object in /home/weo3/public_html/drb/index.php on line 117
+[14-May-2014 16:06:43 America/Chicago] PHP Fatal error:  Cannot use object of type Slim\View as array in /home/weo3/public_html/drb/templates/team.php on line 6
