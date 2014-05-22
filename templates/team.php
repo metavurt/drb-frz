@@ -86,14 +86,20 @@
 
 				</div>
 			</div>
-
 			<div class="row">
-				<div class="large-12 small-12 alpha-horizontal omega-horizontal text-center columns">
-					<a class="button small radius" href="/drb/index.php/teams">show all teams</a>
+				<div class="small-12 columns">
+					<div id="container"></div>
+				</div>
+			</div>
+			<hr />
+			<div class="row">
+				<div class="large-6 small-12 alpha-horizontal omega-horizontal large-centered text-center columns">
+					<a class="button small radius" href="/drb/index.php/teams">view all teams</a>
 				</div>
 			</div>
 
-        </section><a class="exit-off-canvas"></a>
+        </section>
+        <a class="exit-off-canvas"></a>
     </div>
 </div>
 
@@ -101,10 +107,59 @@
 <script src="/drb/js/vendor/jquery.js"></script>
 <script src="/drb/js/foundation.min.js"></script>
 <script src="../../js/highcharts.js"></script>
-<script src="../../js/themes/gray.js"></script>
+<script src="../../js/modules/data.js"></script>
 
 <script>
   $(document).foundation();
+</script>
+
+<script>
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: 'Browser market shares at a specific website, 2014'
+        },
+        tooltip: {
+    	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Browser share',
+            data: [
+                ['Firefox',   45.0],
+                ['IE',       26.8],
+                {
+                    name: 'Chrome',
+                    y: 12.8,
+                    sliced: true,
+                    selected: true
+                },
+                ['Safari',    8.5],
+                ['Opera',     6.2],
+                ['Others',   0.7]
+            ]
+        }]
+    });
+});
+    
 </script>
 
 </body>

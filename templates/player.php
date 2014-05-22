@@ -134,7 +134,6 @@
 <script src="../../js/foundation.min.js"></script>
 <script src="../../js/highcharts.js"></script>
 <script src="../../js/modules/data.js"></script>
-<script src="../../js/themes/sand-signika.js"></script>
 
 <script>
 	$(document).foundation();
@@ -145,13 +144,17 @@
 	            table: document.getElementById('drb-weekly-scores')
 	        },
 	        chart: {
-	            type: 'bar'
+	            type: 'bar',
+	            spacingBottom: 40
 	        },
 	        title: {
 	            text: 'Weekly Game Scores'
 	        },
 	        legend: {
 	        	reversed: true
+	        },
+	        credits: {
+	        	enabled: false
 	        },
 	        xAxis: {
 	        	title: {
