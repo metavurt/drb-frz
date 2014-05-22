@@ -42,6 +42,7 @@
             			$hnd = $playerData['hnd'];
             			$high = $playerData['hscore'];
             			$low = $playerData['lscore'];
+            			$tid = $playerData['tid'];
             		}
 
 
@@ -107,6 +108,7 @@
 					</div>
 					<div class="row">
 						<div class="small-12 text-centered columns">
+							<a href="/drb/index.php/team/"<?php echo $tid; ?> >view team page</a>
 							<a href="/drb/index.php/players">view all players</a>
 						</div>
 					</div>
