@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title><?php echo $this->data['page_title']; ?></title>
-    <link rel="stylesheet" href="../css/foundation.css" />
-    <link rel="stylesheet" href="../css/drbfz.css" />
-    <script src="../js/vendor/modernizr.js"></script>
+    <link rel="stylesheet" href="../../css/foundation.css" />
+    <link rel="stylesheet" href="../../css/drbfz.css" />
+    <script src="../../js/vendor/modernizr.js"></script>
 </head>
 
 <body>
@@ -33,43 +33,78 @@
 
         <section class="main-section">
             <!-- MAIN CONTENT GOES HERE -->
+            <?php
+            		foreach ($this->data['data'] as $playerData) {
+            			$name = $playerData['pname'];
+            			$tpins = $playerData['tpins'];
+            			$gms = $playerData['gms'];
+            			$avg = $playerData['avgscore'];
+            			$hnd = $playerData['hnd'];
+            			$high = $playerData['hscore'];
+            			$low = $playerData['lscore'];
+            		}
+
+
+            ?>
+
             <div class="row">
-            	<div class="large-6 small-6 alpha-horizontal columns">
-            		<h3>GAME HIGH: <?php echo $this->data['player_high']; ?></h3>
-			<div class="row">
-				<div class="large-12 small-12 alpha-horizontal omega-horizontal columns">
-					<table class="drb-standings">
-					<thead>
-						<tr>
-							<th></th>
-							<th>Player</th>
-							<th class="text-center">Pins</th>
-							<th class="text-center">Games</th>
-							<th class="text-center">Avg</th>
-							<th class="text-center">H*</th>
-						</tr>
-					</thead>
-					<tbody>
+            	<div class="large-8 small-11 small-centered alpha-horizontal columns">
+            		<h4><?php echo $name; ?></h4>
+					<div class="row">
+						<div class="large-12 small-12 alpha-horizontal omega-horizontal columns">
+							<table class="drb-standings">
+								<thead>
+									<tr>
+										<th class="text-center">Pins</th>
+										<th class="text-center">Games</th>
+										<th class="text-center">Avg</th>
+										<th class="text-center">Hndi</th>
+										<th class="text-center">High</th>
+										<th class="text-center">Low</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class='text-center'><?php echo $tpins; ?></td>
+										<td class='text-center'><?php echo $gms; ?></td>
+										<td class='text-center'><?php echo $avg; ?></td>
+										<td class='text-center'><?php echo $hnd; ?></td>
+										<td class='text-center'><?php echo $high; ?></td>
+										<td class='text-center'><?php echo $low; ?></td>
+									</tr>
+								</tbody>
+							</table>
+							<table class="drb-standings">
+								<thead>
+									<tr>
+										<th class="text-center">Wk</th>
+										<th class="text-center">Gm1</th>
+										<th class="text-center">Gm2</th>
+										<th class="text-center">Gm3</th>
+									</tr>
+								</thead>
+								<tbody>
 
-					<?php
-						
-						$c = 1;
+									<?php
 
-						foreach ($this->data['data'] as $playerData) { 
-							echo "<tr>\n\t";
-							echo "<td>".$c."</td>\n\t";
-							echo "<td>".$playerData['pname']."</td>\n\t";
-							echo "<td class='text-center'>".$playerData['tpins']."</td>\n\t";
-							echo "<td class='text-center'>".$playerData['gms']."</td>\n\t";
-							echo "<td class='text-center'>".$playerData['avgs']."</td>\n\t";
-							echo "<td class='text-center'>".$playerData['hnd']."</td>\n";
-							echo "</tr>\n";
-							$c++;
-						}
+					            		$wkCount = 0;
 
-					?>
-					</tbody>
-					</table>
+					            		foreach ($this->data['gdata'] as $gameData) {
+					            			$wkCount++;
+					            			echo "<tr>\n\t";
+					            			echo "<td class='text-center'>".$wkCount."</td>\n";
+					            			echo "<td class='text-center'>".$gameData['g1']."</td>\n";
+					            			echo "<td class='text-center'>".$gameData['g2']."</td>\n";
+					            			echo "<td class='text-center'>".$gameData['g3']."</td>\n";
+					            			echo "</tr>\n\t";
+					            		}
+
+					            	?>
+
+					            </tbody>
+					        </table>
+						</div>
+					</div>
 				</div>
 			</div>
 
@@ -78,8 +113,8 @@
 </div>
 
 
-<script src="../js/vendor/jquery.js"></script>
-<script src="../js/foundation.min.js"></script>
+<script src="../../js/vendor/jquery.js"></script>
+<script src="../../js/foundation.min.js"></script>
 <script>
   $(document).foundation();
 </script>

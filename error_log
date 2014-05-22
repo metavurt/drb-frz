@@ -1,1 +1,0 @@
-[14-May-2014 16:06:43 America/Chicago] PHP Fatal error:  Cannot use object of type Slim\View as array in /home/weo3/public_html/drb/templates/team.php on line 6
