@@ -70,7 +70,8 @@
 				</div>
 			</div>
 
-        </section><a class="exit-off-canvas"></a>
+        </section>
+        <a class="exit-off-canvas"></a>
     </div>
 </div>
 

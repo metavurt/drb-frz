@@ -107,9 +107,9 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="small-12 text-centered columns">
-							<a href="/drb/index.php/team/"<?php echo $tid; ?> >view team page</a>
-							<a href="/drb/index.php/players">view all players</a>
+						<div class="small-12 text-center columns">
+							<p><?php echo '<a class="button small radius" href="/drb/index.php/team/' . $tid . '">view team page</a>'; ?></p>
+							<p><a class="button small radius" href="/drb/index.php/players">view all players</a></p>
 						</div>
 					</div>
 				</div>
@@ -122,6 +122,8 @@
 
 <script src="../../js/vendor/jquery.js"></script>
 <script src="../../js/foundation.min.js"></script>
+<script src="../../js/highcharts.js"></script>
+
 <script>
   $(document).foundation();
 </script>

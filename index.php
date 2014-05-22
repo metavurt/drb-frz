@@ -79,7 +79,7 @@ $app->get('/player/(:id)', function($id) use ($app) {
 	require_once 'php/drbfz.php';
 	$db = connect_db();
 
-	$r = $db->query('SELECT bnp_players.pid, bnp_players.tid, pname, SUM(g1 + g2 + g3) as tpins, COUNT(wid)*3 as gms,
+	$r = $db->query('SELECT bnp_players.pid, bnp_players.tid as tid, pname, SUM(g1 + g2 + g3) as tpins, COUNT(wid)*3 as gms,
 					ROUND(SUM(g1 + g2 + g3)/(COUNT(wid)*3), 0) as avgscore,
 					ROUND(SUM(hnd)/COUNT(wid), 0) as hnd,
 					GREATEST(MAX(g1), MAX(g2), MAX(g3)) AS hscore,

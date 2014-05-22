@@ -27,6 +27,11 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
 	background: #F3F3F3;
 }
 
+button {
+	background-color: #930;
+	border-color: #620;
+}
+
 /****************************************************
 	2. Structure
 ****************************************************/
@@ -82,6 +87,11 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
 	5. General
 ****************************************************/
 
+
+.button {
+	background-color: #930;
+	border-color: #620;
+}
 
 /****************************************************
 	6. Queries

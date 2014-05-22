@@ -86,7 +86,7 @@
 
 			<div class="row">
 				<div class="large-12 small-12 alpha-horizontal omega-horizontal text-center columns">
-					<a href="/drb/index.php/teams">show all teams</a>
+					<a class="button small radius" href="/drb/index.php/teams">show all teams</a>
 				</div>
 			</div>
 
