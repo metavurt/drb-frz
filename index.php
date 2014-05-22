@@ -125,15 +125,7 @@ $app->get('/team/:team', function ($team) use ($app) {
 		$data[] = $row;
 	}
 
-	$r2 = $db->query('SELECT g1, g2, g3
-					FROM bnp_stats
-					WHERE bnp_stats.pid = '.$id);
-
-	while ($row2 = $r2->fetch_array(MYSQLI_ASSOC) ) {
-		$gdata[] = $row2;
-	}
-
-	$app->render('team.php', array('page_title' => 'DRB Team Stats', 'data' => $data, 'gdata' => $gdata));
+	$app->render('team.php', array('page_title' => 'DRB Team Stats', 'data' => $data));
 
 });
 

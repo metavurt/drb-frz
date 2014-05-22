@@ -64,6 +64,10 @@
 					<?php
 						
 						$c = 1;
+						$i = 0;
+						$tp = 0;
+						$pn = '';
+						$pp = '[';
 
 						foreach ($this->data['data'] as $playerData) { 
 							echo "<tr>\n\t";
@@ -74,8 +78,18 @@
 							echo "<td class='text-center'>".$playerData['avgs']."</td>\n\t";
 							echo "<td class='text-center'>".$playerData['hnd']."</td>\n";
 							echo "</tr>\n";
+							$pn = $playerData['pname'];
+							$tp = $playerData['tpins'];
+							if($i == 0) {
+								$pp .= '[\''.$pn.'\''.', '.$tp.']';
+							} else {
+								$pp .= ',[\''.$pn.'\''.', '.$tp.']';
+							}
+							$i++;
 							$c++;
 						}
+
+						$pp .= ']';
 
 					?>
 
@@ -115,6 +129,9 @@
 
 <script>
 $(function () {
+
+	var ld = <?php echo $pp; ?>;
+
     $('#container').highcharts({
         chart: {
             plotBackgroundColor: null,
@@ -122,7 +139,7 @@ $(function () {
             plotShadow: false
         },
         title: {
-            text: 'You lift, bro?'
+            text: ''
         },
         tooltip: {
     	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -146,14 +163,7 @@ $(function () {
         series: [{
             type: 'pie',
             name: 'Contributions',
-            data: [
-                ['Firefox',   45.0],
-                ['IE',       26.8],
-                ['Chrome',	12.8],
-                ['Safari',    8.5],
-                ['Opera',     6.2],
-                ['Others',   0.7]
-            ]
+            data: ld
         }]
     });
 });
