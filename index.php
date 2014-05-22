@@ -112,7 +112,7 @@ $app->get('/team/:team', function ($team) use ($app) {
 	require_once 'php/drbfz.php';
 	$db = connect_db();
 
-	$r = $db->query('SELECT tname, bnp_players.pid, pname, SUM(g1 + g2 + g3) as tpins, COUNT(wid)*3 as gms,
+	$r = $db->query('SELECT tname, bnp_players.pid as pid, pname, SUM(g1 + g2 + g3) as tpins, COUNT(wid)*3 as gms,
 					ROUND(SUM(g1 + g2 + g3)/(COUNT(wid)*3), 0) as avgs,
 					ROUND(SUM(hnd)/COUNT(wid), 0) as hnd
 					FROM bnp_teams, bnp_players

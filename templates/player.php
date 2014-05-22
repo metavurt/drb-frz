@@ -105,6 +105,11 @@
 					        </table>
 						</div>
 					</div>
+					<div class="row">
+						<div class="small-12 text-centered columns">
+							<a href="/drb/index.php/players">view all players</a>
+						</div>
+					</div>
 				</div>
 			</div>
 
