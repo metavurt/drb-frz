@@ -122,7 +122,7 @@ $(function () {
             plotShadow: false
         },
         title: {
-            text: 'Browser market shares at a specific website, 2014'
+            text: 'You lift, bro?'
         },
         tooltip: {
     	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -140,18 +140,16 @@ $(function () {
                 }
             }
         },
+        credits: {
+			enabled: false
+		},
         series: [{
             type: 'pie',
-            name: 'Browser share',
+            name: 'Contributions',
             data: [
                 ['Firefox',   45.0],
                 ['IE',       26.8],
-                {
-                    name: 'Chrome',
-                    y: 12.8,
-                    sliced: true,
-                    selected: true
-                },
+                ['Chrome',	12.8],
                 ['Safari',    8.5],
                 ['Opera',     6.2],
                 ['Others',   0.7]
