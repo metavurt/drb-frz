@@ -125,7 +125,15 @@ $app->get('/team/:team', function ($team) use ($app) {
 		$data[] = $row;
 	}
 
-	$app->render('team.php', array('page_title' => 'DRB Team Stats', 'data' => $data));
+	$s = $db->query('SELECT wid, tpins
+					FROM bnp_points
+					WHERE bnp_teams.tid = '.$team);
+
+	while ( $sow = $s->fetch_array(MYSQLI_ASSOC) ) {
+		$tdata[] = $sow;
+	}
+
+	$app->render('team.php', array('page_title' => 'DRB Team Stats', 'data' => $data, 'tdata' => $tdata));
 
 });
 

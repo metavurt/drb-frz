@@ -39,10 +39,11 @@
 					<thead>
 						<tr>
 							<th></th>
+							<th class="text-right">#</th>
 							<th>Team</th>
 							<th class="text-center">W</th>
 							<th class="text-center">L</th>
-							<th class="text-center">PCT</th>
+							<th class="text-center">Pct</th>
 							<th class="text-center">Total Pins</th>
 						</tr>
 					</thead>
@@ -55,6 +56,7 @@
 						foreach ($this->data['data'] as $teamData) { 
 							echo "<tr>\n\t";
 							echo "<td>".$c."</td>\n\t";
+							echo "<td class='text-right'>".$teamData['tid']."</td>\n\t";
 							echo "<td><a href='/drb/index.php/team/".$teamData['tid']."'>".$teamData['tname']."</a></td>\n\t";
 							echo "<td class='text-center'>".$teamData['wins']."</td>\n\t";
 							echo "<td class='text-center'>".$teamData['loss']."</td>\n\t";

@@ -136,9 +136,14 @@
 <script src="../../js/modules/data.js"></script>
 
 <script>
-	$(document).foundation();
+$(document).foundation();
 
 	$(function () {
+
+	Highcharts.setOptions({
+        colors: ['#E8D174', '#E39E54', '#D64D4D', '#4D7358', '#9ED670', '#0C457D']
+    });
+
 	    $('#container').highcharts({
 	        data: {
 	            table: document.getElementById('drb-weekly-scores')

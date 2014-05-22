@@ -132,6 +132,10 @@ $(function () {
 
 	var ld = <?php echo $pp; ?>;
 
+	Highcharts.setOptions({
+        colors: ['#673888', '#6BD2DB','#E8702A', '#E8D174', '#E39E54', '#D64D4D', '#4D7358', '#9ED670', '#0C457D']
+    });	
+
     $('#container').highcharts({
         chart: {
             plotBackgroundColor: null,
