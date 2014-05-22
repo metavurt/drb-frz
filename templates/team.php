@@ -33,9 +33,17 @@
 
         <section class="main-section">
             <!-- MAIN CONTENT GOES HERE -->
+
+					<?php
+						foreach ($this->data['data'] as $playerData) { 
+							$tname = $playerData['tname'];
+						}
+					?>
+
+
             <div class="row">
 				<div class="large-12 small-12 alpha-horizontal omega-horizontal text-center columns">
-					<h2>TEAM: <?php echo $this->data['data']['tname']; ?></h2>
+					<h3>TEAM: <?php echo $tname; ?></h3>
 				</div>
 			</div>
 
@@ -53,7 +61,6 @@
 						</tr>
 					</thead>
 					<tbody>
-
 					<?php
 						
 						$c = 1;
@@ -71,6 +78,7 @@
 						}
 
 					?>
+
 					</tbody>
 					</table>
 				</div>

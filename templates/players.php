@@ -55,7 +55,7 @@
 						foreach ($this->data['data'] as $playerData) { 
 							echo "<tr>\n\t";
 							echo "<td>".$c."</td>\n\t";
-							echo "<td>".$playerData['pname']."</td>\n\t";
+							echo "<td><a href='/drb/index.php/player/".$playerData['pid']."'>".$playerData['pname']."</a></td>\n\t";
 							echo "<td class='text-center'>".$playerData['tpins']."</td>\n\t";
 							echo "<td class='text-center'>".$playerData['gms']."</td>\n\t";
 							echo "<td class='text-center'>".$playerData['avgs']."</td>\n\t";
