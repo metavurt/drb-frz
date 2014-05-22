@@ -81,6 +81,9 @@
 
 					</tbody>
 					</table>
+
+					<div id="container" style="width:100%; height:20em;"></div>
+
 				</div>
 			</div>
 
@@ -97,6 +100,9 @@
 
 <script src="/drb/js/vendor/jquery.js"></script>
 <script src="/drb/js/foundation.min.js"></script>
+<script src="../../js/highcharts.js"></script>
+<script src="../../js/themes/gray.js"></script>
+
 <script>
   $(document).foundation();
 </script>

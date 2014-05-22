@@ -123,6 +123,7 @@
 <script src="../../js/vendor/jquery.js"></script>
 <script src="../../js/foundation.min.js"></script>
 <script src="../../js/highcharts.js"></script>
+<script src="../../js/themes/sand-signika.js"></script>
 
 <script>
   $(document).foundation();

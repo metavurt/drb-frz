@@ -32,6 +32,10 @@ button {
 	border-color: #620;
 }
 
+button:hover, button:focus {
+	background-color: #620;
+}
+
 /****************************************************
 	2. Structure
 ****************************************************/
@@ -91,6 +95,10 @@ button {
 .button {
 	background-color: #930;
 	border-color: #620;
+}
+
+.button:hover, .button:focus {
+	background-color: #620;
 }
 
 /****************************************************
