@@ -70,7 +70,7 @@ $app->get('/players', function () use ($app) {
 		$data[] = $row;
 	}
 
-	$app->render('players.php', array('page_title' => 'DRB Player Stats','data' => $data));
+	$app->render('players.php', array('page_title' => 'DRB Players','data' => $data));
 
 });
 
@@ -78,6 +78,18 @@ $app->get('/player/(:id)', function($id) use ($app) {
 	require_once 'php/drbfz.php';
 	$db = connect_db();
 
+	$r = $db->query('SELECT bnp_players.pid, pname, SUM(g1 + g2 + g3) as tpins, COUNT(wid)*3 as gms,
+					ROUND(SUM(g1 + g2 + g3)/(COUNT(wid)*3), 0) as avgs,
+					ROUND(SUM(hnd)/COUNT(wid), 0) as hnd
+					FROM bnp_players
+					JOIN bnp_stats
+					WHERE bnp_stats.pid = 1 AND bnp_players.pid = 1');
+
+	while ( $row = $r->fetch_array(MYSQLI_ASSOC) ) {
+		$data[] = $row;
+	}
+
+	$app->render('player.php', array('page_title' => 'DRB Player Stats', 'data' => $data));
 
 
 });
