@@ -91,6 +91,9 @@ button:hover, button:focus {
 	5. General
 ****************************************************/
 
+#drb-weekly-scores {
+	display: none;
+}
 
 .button {
 	background-color: #930;

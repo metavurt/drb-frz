@@ -75,13 +75,13 @@
 									</tr>
 								</tbody>
 							</table>
-							<table class="drb-standings">
+							<table id="drb-weekly-scores" class="drb-standings">
 								<thead>
 									<tr>
-										<th class="text-center">Wk</th>
-										<th class="text-center">Gm1</th>
-										<th class="text-center">Gm2</th>
+										<th class="text-center"></th>
 										<th class="text-center">Gm3</th>
+										<th class="text-center">Gm2</th>
+										<th class="text-center">Gm1</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -94,9 +94,9 @@
 					            			$wkCount++;
 					            			echo "<tr>\n\t";
 					            			echo "<td class='text-center'>".$wkCount."</td>\n";
-					            			echo "<td class='text-center'>".$gameData['g1']."</td>\n";
-					            			echo "<td class='text-center'>".$gameData['g2']."</td>\n";
 					            			echo "<td class='text-center'>".$gameData['g3']."</td>\n";
+					            			echo "<td class='text-center'>".$gameData['g2']."</td>\n";
+					            			echo "<td class='text-center'>".$gameData['g1']."</td>\n";
 					            			echo "</tr>\n\t";
 					            		}
 
@@ -104,11 +104,21 @@
 
 					            </tbody>
 					        </table>
+
+
 						</div>
 					</div>
 					<div class="row">
-						<div class="small-12 text-center columns">
+						<div class="small-12 columns">
+							<div id="container"></div>
+						</div>
+					</div>
+					<hr />
+					<div class="row">
+						<div class="small-12 large-6 text-center columns">
 							<p><?php echo '<a class="button small radius" href="/drb/index.php/team/' . $tid . '">view team page</a>'; ?></p>
+						</div>
+						<div class="small-12 large-6 text-center columns">
 							<p><a class="button small radius" href="/drb/index.php/players">view all players</a></p>
 						</div>
 					</div>
@@ -123,10 +133,45 @@
 <script src="../../js/vendor/jquery.js"></script>
 <script src="../../js/foundation.min.js"></script>
 <script src="../../js/highcharts.js"></script>
+<script src="../../js/modules/data.js"></script>
 <script src="../../js/themes/sand-signika.js"></script>
 
 <script>
-  $(document).foundation();
+	$(document).foundation();
+
+	$(function () {
+	    $('#container').highcharts({
+	        data: {
+	            table: document.getElementById('drb-weekly-scores')
+	        },
+	        chart: {
+	            type: 'bar'
+	        },
+	        title: {
+	            text: 'Weekly Game Scores'
+	        },
+	        legend: {
+	        	reversed: true
+	        },
+	        xAxis: {
+	        	title: {
+	        		text: 'Week'
+	        	}
+	        },
+	        yAxis: {
+	            allowDecimals: false,
+	            title: {
+	                text: 'Score'
+	            }
+	        },
+	        tooltip: {
+	            formatter: function() {
+	                return '<strong>'+this.point.y+'</strong>'
+	            }
+	        }
+	    });
+	});
+
 </script>
 
 </body>
