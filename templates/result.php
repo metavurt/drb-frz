@@ -235,6 +235,10 @@ $(function () {
 $(function () {
     var chart,
         categories = ['Gm1', 'Gm2', 'Gm3'];
+
+    var team1Name = '';
+    var team2Name = '';
+    
     $(document).ready(function() {
         $('#boxscore').highcharts({
             chart: {
