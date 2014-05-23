@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/foundation.css" />
     <link rel="stylesheet" href="../css/drbfz.css" />
     <script src="../js/vendor/modernizr.js"></script>
+    <script src="../js/sorttable.js"></script>
 </head>
 
 <body>
@@ -35,7 +36,7 @@
             <!-- MAIN CONTENT GOES HERE -->
 			<div class="row">
 				<div class="large-12 small-12 alpha-horizontal omega-horizontal columns">
-					<table class="drb-standings">
+					<table id="playerList" class="drb-standings sortable">
 					<thead>
 						<tr>
 							<th></th>
@@ -83,6 +84,14 @@
 
 <script>
   $(document).foundation();
+
+$(function () {
+  var nt = document.getElementById(playerList);
+
+  sorttable.makeSortable(nt);
+
+});
+
 </script>
 
 </body>

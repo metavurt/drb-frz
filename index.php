@@ -36,11 +36,8 @@ $app->get('/', function () use ($app) {
 	$db = connect_db();
 
 	$r = $db->query('SELECT bnp_teams.tid, tname,
-					SUM(twins) as wins, sum(tloss) as loss,
-					FORMAT(100 * SUM(twins)/(SUM(twins) + SUM(tloss)), 2) as pcnt,
-					SUM(tpins) as tpins
-					FROM bnp_teams
-					JOIN bnp_points
+					SUM(twins) AS wins, SUM(tloss) AS loss, FORMAT(100 * SUM(twins)/(SUM(twins) + SUM(tloss)), 2) as pcnt,
+					SUM(tpins) AS tpins FROM bnp_teams JOIN bnp_points
 					ON bnp_points.tid = bnp_teams.tid
 					GROUP BY tid
 					ORDER BY wins DESC, tpins DESC' );
@@ -127,7 +124,7 @@ $app->get('/team/:team', function ($team) use ($app) {
 
 	$s = $db->query('SELECT wid, tpins
 					FROM bnp_points
-					WHERE bnp_teams.tid = '.$team);
+					WHERE tid = '.$team);
 
 	while ( $sow = $s->fetch_array(MYSQLI_ASSOC) ) {
 		$tdata[] = $sow;

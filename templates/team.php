@@ -49,6 +49,32 @@
 
 			<div class="row">
 				<div class="large-12 small-12 alpha-horizontal omega-horizontal columns">
+
+					<table id="drb-weekly-scores" class="drb-standings">
+						<thead>
+							<tr>
+								<th class="text-center"></th>
+								<th class="text-center">Week</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<?php
+
+			            		foreach ($this->data['tdata'] as $teamData) {
+			            			echo "<tr>\n\t";
+			            			echo "<th class='text-center'>".$teamData['wid']."</th>\n";
+			            			echo "<td class='text-center'>".$teamData['tpins']."</td>\n";
+			            			echo "</tr>\n\t";
+			            		}
+
+			            	?>
+
+			            </tbody>
+			        </table>
+
+			        <div id="teamchart" style="width:100%;height:20em"></div>
+
 					<table class="drb-standings">
 					<thead>
 						<tr>
@@ -167,6 +193,41 @@ $(function () {
             data: ld
         }]
     });
+
+	$('#teamchart').highcharts({
+        data: {
+            table: document.getElementById('drb-weekly-scores')
+        },
+        chart: {
+            type: 'line',
+            spacingBottom: 40
+        },
+        title: {
+            text: 'Weekly Game Scores'
+        },
+        legend: {
+        	reversed: true
+        },
+        credits: {
+        	enabled: false
+        },
+        xAxis: {
+        	allowDecimals: false
+        },
+        yAxis: {
+			allowDecimals: false,
+        	title: {
+        		text: 'Total Pins'
+        	}
+        },
+        tooltip: {
+            formatter: function() {
+                return '<strong>'+this.point.y+'</strong>'
+            }
+        }
+    });
+
+
 });
     
 </script>
