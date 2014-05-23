@@ -202,7 +202,7 @@ $app->get('/vs', function() use ($app) {
 	$db = connect_db();
 
 
-	$r = $db->query('SELECT m.mid, t1.tname AS team1, t2.tname AS team2
+	$r = $db->query('SELECT m.mid, m.wid, t1.tid AS tid1, t1.tname AS team1, t2.tid AS tid2, t2.tname AS team2
 					FROM bnp_schedule as m
 					LEFT JOIN bnp_teams AS t1
 					ON t1.tid = m.tid1

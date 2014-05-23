@@ -1,5 +1,2 @@
-[23-May-2014 11:47:57 America/Chicago] PHP Fatal error:  Call to a member function fetch_array() on a non-object in /home/weo3/public_html/drb/index.php on line 48
-[23-May-2014 14:59:41 America/Chicago] PHP Parse error:  syntax error, unexpected '$app' (T_VARIABLE) in /home/weo3/public_html/drb/index.php on line 199
-[23-May-2014 14:59:47 America/Chicago] PHP Parse error:  syntax error, unexpected '$app' (T_VARIABLE) in /home/weo3/public_html/drb/index.php on line 199
-[23-May-2014 15:05:31 America/Chicago] PHP Parse error:  syntax error, unexpected '$app' (T_VARIABLE) in /home/weo3/public_html/drb/index.php on line 199
-[23-May-2014 15:05:38 America/Chicago] PHP Parse error:  syntax error, unexpected '$app' (T_VARIABLE) in /home/weo3/public_html/drb/index.php on line 199
+[23-May-2014 18:31:07 America/Chicago] PHP Parse error:  syntax error, unexpected '=' in /home/weo3/public_html/drb/templates/results.php on line 61
+[23-May-2014 18:31:16 America/Chicago] PHP Parse error:  syntax error, unexpected '=' in /home/weo3/public_html/drb/templates/results.php on line 61
