@@ -141,7 +141,7 @@ $(document).foundation();
 	$(function () {
 
 	Highcharts.setOptions({
-        colors: ['#E8D174', '#E39E54', '#D64D4D', '#4D7358', '#9ED670', '#0C457D']
+        colors: ['#D64D4D', '#4D7358', '#0C457D']
     });
 
 	    $('#container').highcharts({
@@ -162,6 +162,7 @@ $(document).foundation();
 	        	enabled: false
 	        },
 	        xAxis: {
+	        	tickInterval: 1,
 	        	title: {
 	        		text: 'Week'
 	        	}

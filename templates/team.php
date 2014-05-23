@@ -122,13 +122,11 @@
 					</tbody>
 					</table>
 
-					<div id="container" style="width:100%; height:20em;"></div>
-
 				</div>
 			</div>
 			<div class="row">
 				<div class="small-12 columns">
-					<div id="container"></div>
+					<div id="container" style="width:100%; height:20em;"></div>
 				</div>
 			</div>
 			<hr />
