@@ -57,7 +57,7 @@
 								<th class="text-center">Week</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody> -->
 
 							<?php
 
@@ -69,12 +69,12 @@
 			            		// }
 
 			            	?>
-
+<!--
 			            </tbody>
 			        </table> -->
 
-			        <div id="teamchart" style="width:100%;height:20em"></div>
-
+<!-- 			        <div id="teamchart" style="width:100%;min-height:20em"></div>
+ -->
 					<!-- <table class="drb-standings">
 					<thead>
 						<tr>
@@ -122,7 +122,7 @@
 					<!-- </tbody>
 					</table> -->
 
-					<div id="boxscore" style="width:100%; min-height:20em;"></div>
+					<div id="boxscore" style="width:100%; height:20em;"></div>
 
 				</div>
 			</div>
@@ -238,7 +238,7 @@ $(function () {
 
     var team1Name = '';
     var team2Name = '';
-    
+
     $(document).ready(function() {
         $('#boxscore').highcharts({
             chart: {

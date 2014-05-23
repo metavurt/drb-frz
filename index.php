@@ -196,6 +196,29 @@ $app->get('/vs/:t1/:t2/:wk', function($t1,$t2,$wk) use ($app) {
 });
 
 
+$app->get('/vs', function() use ($app) {
+
+	require_once 'php/drbfz.php';
+	$db = connect_db();
+
+
+	$r = $db->query('SELECT m.mid, t1.tname AS team1, t2.tname AS team2
+					FROM bnp_schedule as m
+					LEFT JOIN bnp_teams AS t1
+					ON t1.tid = m.tid1
+					LEFT JOIN bnp_teams AS t2
+					ON t2.tid = m.tid2');
+
+	while ( $row = $r->fetch_array(MYSQLI_ASSOC) ) {
+		$data[] = $row;
+	}
+
+	$app->render('results.php', array('page_title' => 'DRB Thur Mixed Results', 'data' => $data));
+
+
+});
+
+
 $app->run();
 
 ?>
