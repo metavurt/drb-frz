@@ -35,16 +35,20 @@
             <!-- MAIN CONTENT GOES HERE -->
 
 					<?php
-						// foreach ($this->data['data'] as $playerData) { 
-						// 	$tname = $playerData['tname'];
-						// }
+						foreach ($this->data['data1'] as $teamData1) { 
+							$tname1 = $teamData1['tname'];
+						}
+
+						foreach ($this->data['data2'] as $teamData2) {
+							$tname2 = $teamData2['tname'];
+						}
 					?>
 
 
             <div class="row">
 				<div class="large-12 small-12 alpha-horizontal omega-horizontal columns">
-<!-- 					<h3><?php echo $tname; ?></h3>
- -->				</div>
+ 					<h3><?php echo $tname1."   vs   ".$tname2; ?></h3>
+				</div>
 			</div>
 
 			<div class="row">
