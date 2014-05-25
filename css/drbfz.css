@@ -27,6 +27,14 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
 	background: #F3F3F3;
 }
 
+table tfoot tr td {
+	font-weight: normal;
+}
+
+table tfoot {
+	background: none;
+}
+
 button {
 	background-color: #930;
 	border-color: #620;
@@ -46,6 +54,10 @@ button:hover, button:focus {
 
 .off-canvas-wrap {
 	overflow-y: auto;
+}
+
+.main-section {
+	margin-top: 5em;
 }
 
 /****************************************************
@@ -95,6 +107,14 @@ button:hover, button:focus {
 	display: none;
 }
 
+#drb-weekly-handicap {
+	display: none;
+}
+
+.drb-team-statistics {
+	margin-top: 2em;
+}
+
 .button {
 	background-color: #930;
 	border-color: #620;
@@ -102,6 +122,17 @@ button:hover, button:focus {
 
 .button:hover, .button:focus {
 	background-color: #620;
+}
+
+.note {
+	font-style: italic;
+	font-size: 0.9em;
+	margin-bottom: 0;
+}
+
+.aster {
+	color: #F30;
+	font-weight: bold;
 }
 
 /****************************************************

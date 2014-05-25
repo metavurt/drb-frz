@@ -1,5 +1,5 @@
 
-update bnp_points set tpins='2144' where tid='1' and wid='5';
+update bnp_points set tpins='2144' where tid='1' and wid='6';
 
 
 
@@ -16,14 +16,3 @@ update bnp_points set tpins='2144' where tid='1' and wid='5';
 					AND bnp_stats.wid = '.$wk.'
 					GROUP BY pid');
 
-
-
-SELECT m.mid, t1.tname AS team1, t2.tname AS team2
-FROM bnp_schedule as m
-LEFT JOIN bnp_teams AS t1
-ON t1.tid = m.tid1
-LEFT JOIN bnp_teams AS t2
-ON t2.tid = m.tid2
-
-
-WHERE wid = 1

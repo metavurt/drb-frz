@@ -13,15 +13,17 @@
 
 <div class="off-canvas-wrap" data-offcanvas="">
     <div class="inner-wrap">
-        <nav class="tab-bar drb-bg-red">
-            <section class="left-small">
-                <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
-            </section>
+    	<div class="fixed">
+	        <nav class="tab-bar drb-bg-red">
+	            <section class="left-small">
+	                <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+	            </section>
 
-            <section class="middle tab-bar-section">
-                <h1 class="title">DRB Thur Mixed</h1>
-            </section>
-        </nav>
+	            <section class="middle tab-bar-section">
+	                <h1 class="title">DRB Thur Mixed</h1>
+	            </section>
+	        </nav>
+	    </div>
 
         <aside class="left-off-canvas-menu drb-bg-drd">
             <ul class="off-canvas-list">
@@ -73,19 +75,24 @@
 			            </tbody>
 			        </table>
 
-			        <div id="teamchart" style="width:100%;height:20em"></div>
+			        <div id="teamchart" style="width:100%;height:15em;margin-bottom:0;"></div>
+					<p class="note">Pin totals for each week are calculated on total scratch pins thrown, plus the <strong>handicap of each player for that week</strong>.</p>
+			        <p class="note">To see how a player's handicap has changed over time, view their specific stats page.</p>
 
-					<table class="drb-standings">
+
+					<table class="drb-team-statistics">
+					<caption>Team Member Stats</caption>
 					<thead>
 						<tr>
 							<th></th>
-							<th>Player</th>
+							<th></th>
 							<th class="text-center">Pins</th>
 							<th class="text-center">Games</th>
 							<th class="text-center">Avg</th>
-							<th class="text-center">H*</th>
+							<th class="text-center">H<sup class="aster">*</sup></th>
 						</tr>
 					</thead>
+					<tfoot><tr><td class='text-center' colspan="6"><p class="note"><sup class="aster">*</sup>H (handicap) is the latest handicap value</p></td></tr></tfoot>
 					<tbody>
 					<?php
 						
@@ -187,7 +194,7 @@ $(function () {
 		},
         series: [{
             type: 'pie',
-            name: 'Contributions',
+            name: '',
             data: ld
         }]
     });
@@ -204,7 +211,7 @@ $(function () {
             text: 'Weekly Game Scores'
         },
         legend: {
-        	reversed: true
+        	enabled: false
         },
         credits: {
         	enabled: false

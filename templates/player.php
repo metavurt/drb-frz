@@ -13,15 +13,17 @@
 
 <div class="off-canvas-wrap" data-offcanvas="">
     <div class="inner-wrap">
-        <nav class="tab-bar drb-bg-red">
-            <section class="left-small">
-                <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
-            </section>
+    	<div class="fixed">
+	        <nav class="tab-bar drb-bg-red">
+	            <section class="left-small">
+	                <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+	            </section>
 
-            <section class="middle tab-bar-section">
-                <h1 class="title">DRB Thur Mixed</h1>
-            </section>
-        </nav>
+	            <section class="middle tab-bar-section">
+	                <h1 class="title">DRB Thur Mixed</h1>
+	            </section>
+	        </nav>
+	    </div>
 
         <aside class="left-off-canvas-menu drb-bg-drd">
             <ul class="off-canvas-list">
@@ -59,11 +61,12 @@
 										<th class="text-center">Pins</th>
 										<th class="text-center">Games</th>
 										<th class="text-center">Avg</th>
-										<th class="text-center">Hndi</th>
+										<th class="text-center">H<sup class="aster">*</sup></th>
 										<th class="text-center">High</th>
 										<th class="text-center">Low</th>
 									</tr>
 								</thead>
+					            <tfoot><tr><td class='text-center' colspan="6"><p class="note"><sup class="aster">*</sup>H (handicap) is the latest handicap value</p></td></tr></tfoot>
 								<tbody>
 									<tr>
 										<td class='text-center'><?php echo $tpins; ?></td>
@@ -75,6 +78,7 @@
 									</tr>
 								</tbody>
 							</table>
+
 							<table id="drb-weekly-scores" class="drb-standings">
 								<thead>
 									<tr>
@@ -105,12 +109,42 @@
 					            </tbody>
 					        </table>
 
+							<table id="drb-weekly-handicap" class="drb-standings">
+								<thead>
+									<tr>
+										<th class="text-center">W</th>
+										<th class="text-center">H</th>
+									</tr>
+								</thead>
+								<tbody>
 
+									<?php
+
+					            		$wkCount = 0;
+
+					            		foreach ($this->data['gdata'] as $gameData) {
+					            			$wkCount++;
+					            			echo "<tr>\n\t";
+					            			echo "<td class='text-center'>".$wkCount."</td>\n";
+					            			echo "<td class='text-center'>".$gameData['hnd']."</td>\n";
+					            			echo "</tr>\n\t";
+					            		}
+
+					            	?>
+
+					            </tbody>
+					        </table>
 						</div>
 					</div>
 					<div class="row">
 						<div class="small-12 columns">
-							<div id="container"></div>
+							<div id="handicap-chart"></div>
+						</div>
+					</div>
+					<hr />					
+					<div class="row">
+						<div class="small-12 columns">
+							<div id="weekly-chart"></div>
 						</div>
 					</div>
 					<hr />
@@ -140,11 +174,11 @@ $(document).foundation();
 
 	$(function () {
 
-	Highcharts.setOptions({
-        colors: ['#D64D4D', '#4D7358', '#0C457D']
-    });
+		Highcharts.setOptions({
+	        colors: ['#D64D4D', '#4D7358', '#0C457D']
+	    });
 
-	    $('#container').highcharts({
+	    $('#weekly-chart').highcharts({
 	        data: {
 	            table: document.getElementById('drb-weekly-scores')
 	        },
@@ -179,6 +213,43 @@ $(document).foundation();
 	            }
 	        }
 	    });
+
+		$('#handicap-chart').highcharts({
+	        data: {
+	            table: document.getElementById('drb-weekly-handicap')
+	        },
+	        chart: {
+	            type: 'line',
+	            spacingBottom: 40
+	        },
+	        title: {
+	            text: 'Weekly Game Handicaps'
+	        },
+	        legend: {
+	        	enabled: false
+	        },
+	        credits: {
+	        	enabled: false
+	        },
+	        yAxis: {
+	        	title: {
+	        		text: 'Handicap'
+	        	}
+	        },
+	        xAxis: {
+	            allowDecimals: false,
+	            title: {
+	                text: 'Week'
+	            }
+	        },
+	        tooltip: {
+	            formatter: function() {
+	                return '<strong>'+this.point.y+'</strong>'
+	            }
+	        }
+	    });
+
+
 	});
 
 </script>

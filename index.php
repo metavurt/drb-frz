@@ -57,7 +57,7 @@ $app->get('/players', function () use ($app) {
 
 	$r = $db->query('SELECT bnp_players.pid as pid, pname, SUM(g1 + g2 + g3) as tpins, COUNT(wid)*3 as gms,
 					ROUND(SUM(g1 + g2 + g3)/(COUNT(wid)*3), 0) as avgs,
-					ROUND(SUM(hnd)/COUNT(wid), 0) as hnd
+					hnd
 					FROM bnp_players
 					JOIN bnp_stats
 					ON bnp_stats.pid = bnp_players.pid
@@ -78,7 +78,7 @@ $app->get('/player/(:id)', function($id) use ($app) {
 
 	$r = $db->query('SELECT bnp_players.pid, bnp_players.tid as tid, pname, SUM(g1 + g2 + g3) as tpins, COUNT(wid)*3 as gms,
 					ROUND(SUM(g1 + g2 + g3)/(COUNT(wid)*3), 0) as avgscore,
-					ROUND(SUM(hnd)/COUNT(wid), 0) as hnd,
+					hnd,
 					GREATEST(MAX(g1), MAX(g2), MAX(g3)) AS hscore,
                     LEAST(MIN(g1), MIN(g2), MIN(g3)) as lscore
 					FROM bnp_players
@@ -89,7 +89,7 @@ $app->get('/player/(:id)', function($id) use ($app) {
 		$data[] = $row;
 	}
 
-	$r2 = $db->query('SELECT g1, g2, g3
+	$r2 = $db->query('SELECT g1, g2, g3, hnd
 					FROM bnp_stats
 					WHERE bnp_stats.pid = '.$id);
 
@@ -111,7 +111,7 @@ $app->get('/team/:team', function ($team) use ($app) {
 
 	$r = $db->query('SELECT tname, bnp_players.pid as pid, pname, SUM(g1 + g2 + g3) as tpins, COUNT(wid)*3 as gms,
 					ROUND(SUM(g1 + g2 + g3)/(COUNT(wid)*3), 0) as avgs,
-					ROUND(SUM(hnd)/COUNT(wid), 0) as hnd
+					hnd
 					FROM bnp_teams, bnp_players
 					JOIN bnp_stats
 					ON bnp_stats.pid = bnp_players.pid

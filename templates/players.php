@@ -14,15 +14,17 @@
 
 <div class="off-canvas-wrap" data-offcanvas="">
     <div class="inner-wrap">
-        <nav class="tab-bar drb-bg-red">
-            <section class="left-small">
-                <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
-            </section>
+    	<div class="fixed">
+	        <nav class="tab-bar drb-bg-red">
+	            <section class="left-small">
+	                <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+	            </section>
 
-            <section class="middle tab-bar-section">
-                <h1 class="title">DRB Thur Mixed</h1>
-            </section>
-        </nav>
+	            <section class="middle tab-bar-section">
+	                <h1 class="title">DRB Thur Mixed</h1>
+	            </section>
+	        </nav>
+	    </div>
 
         <aside class="left-off-canvas-menu drb-bg-drd">
             <ul class="off-canvas-list">
