@@ -44,13 +44,13 @@
 
 
             <div class="row">
-				<div class="large-12 small-12 alpha-horizontal omega-horizontal columns">
+				<div class="large-12 small-11 small-centered alpha-horizontal omega-horizontal columns">
 					<h3><?php echo $tname; ?></h3>
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="large-12 small-12 alpha-horizontal omega-horizontal columns">
+				<div class="large-12 small-11 small-centered alpha-horizontal omega-horizontal columns">
 
 					<table id="drb-weekly-scores" class="drb-standings">
 						<thead>
@@ -75,7 +75,7 @@
 			            </tbody>
 			        </table>
 
-			        <div id="teamchart" style="width:100%;height:15em;margin-bottom:0;"></div>
+			        <div id="teamchart" style="width:90%;height:20em;margin-bottom:0;"></div>
 					<p class="note">Pin totals for each week are calculated on total scratch pins thrown, plus the <strong>handicap of each player for that week</strong>.</p>
 			        <p class="note">To see how a player's handicap has changed over time, view their specific stats page.</p>
 
@@ -89,10 +89,8 @@
 							<th class="text-center">Pins</th>
 							<th class="text-center">Games</th>
 							<th class="text-center">Avg</th>
-							<th class="text-center">H<sup class="aster">*</sup></th>
 						</tr>
 					</thead>
-					<tfoot><tr><td class='text-center' colspan="6"><p class="note"><sup class="aster">*</sup>H (handicap) is the latest handicap value</p></td></tr></tfoot>
 					<tbody>
 					<?php
 						
@@ -109,7 +107,6 @@
 							echo "<td class='text-center'>".$playerData['tpins']."</td>\n\t";
 							echo "<td class='text-center'>".$playerData['gms']."</td>\n\t";
 							echo "<td class='text-center'>".$playerData['avgs']."</td>\n\t";
-							echo "<td class='text-center'>".$playerData['hnd']."</td>\n";
 							echo "</tr>\n";
 							$pn = $playerData['pname'];
 							$tp = $playerData['tpins'];

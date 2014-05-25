@@ -61,18 +61,15 @@
 										<th class="text-center">Pins</th>
 										<th class="text-center">Games</th>
 										<th class="text-center">Avg</th>
-										<th class="text-center">H<sup class="aster">*</sup></th>
 										<th class="text-center">High</th>
 										<th class="text-center">Low</th>
 									</tr>
 								</thead>
-					            <tfoot><tr><td class='text-center' colspan="6"><p class="note"><sup class="aster">*</sup>H (handicap) is the latest handicap value</p></td></tr></tfoot>
 								<tbody>
 									<tr>
 										<td class='text-center'><?php echo $tpins; ?></td>
 										<td class='text-center'><?php echo $gms; ?></td>
 										<td class='text-center'><?php echo $avg; ?></td>
-										<td class='text-center'><?php echo $hnd; ?></td>
 										<td class='text-center'><?php echo $high; ?></td>
 										<td class='text-center'><?php echo $low; ?></td>
 									</tr>
