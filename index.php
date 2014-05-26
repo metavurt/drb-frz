@@ -89,7 +89,7 @@ $app->get('/player/(:id)', function($id) use ($app) {
 		$data[] = $row;
 	}
 
-	$r2 = $db->query('SELECT g1, g2, g3, hnd
+	$r2 = $db->query('SELECT wid, g1, g2, g3, hnd
 					FROM bnp_stats
 					WHERE bnp_stats.pid = '.$id);
 

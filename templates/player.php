@@ -41,7 +41,6 @@
             			$tpins = $playerData['tpins'];
             			$gms = $playerData['gms'];
             			$avg = $playerData['avgscore'];
-            			$hnd = $playerData['hnd'];
             			$high = $playerData['hscore'];
             			$low = $playerData['lscore'];
             			$tid = $playerData['tid'];
@@ -89,16 +88,26 @@
 
 									<?php
 
-					            		$wkCount = 0;
+					            		$wkCount = 1;
+					            		$nd = null;
 
 					            		foreach ($this->data['gdata'] as $gameData) {
-					            			$wkCount++;
-					            			echo "<tr>\n\t";
-					            			echo "<td class='text-center'>".$wkCount."</td>\n";
-					            			echo "<td class='text-center'>".$gameData['g3']."</td>\n";
-					            			echo "<td class='text-center'>".$gameData['g2']."</td>\n";
-					            			echo "<td class='text-center'>".$gameData['g1']."</td>\n";
-					            			echo "</tr>\n\t";
+					            			if($gameData['wid'] == $wkCount) {
+						            			echo "<tr>\n\t";
+						            			echo "<td class='text-center'>".$wkCount."</td>\n";
+						            			echo "<td class='text-center'>".$gameData['g3']."</td>\n";
+						            			echo "<td class='text-center'>".$gameData['g2']."</td>\n";
+						            			echo "<td class='text-center'>".$gameData['g1']."</td>\n";
+						            			echo "</tr>\n\t";
+						            		} else {
+						            			echo "<tr>\n\t";
+						            			echo "<td class='text-center'>".$wkCount."</td>\n";
+						            			echo "<td class='text-center'>".$nd."</td>\n";
+						            			echo "<td class='text-center'>".$nd."</td>\n";
+						            			echo "<td class='text-center'>".$nd."</td>\n";
+						            			echo "</tr>\n\t";						            			
+						            		}
+						            		$wkCount++;
 					            		}
 
 					            	?>
