@@ -33,11 +33,11 @@
         </aside>
 
         <section class="main-section">
-            <!-- MAIN CONTENT GOES HERE -->
+
 			<div class="row">
 				<div class="large-5 small-6 columns">
 					<table id="himalelist" class="drb-standings">
-					<caption>Men High Score Game (scratch)</caption>
+					<caption>Men High Game (scratch)</caption>
 					<thead>
 						<tr>
 							<th></th>
@@ -69,42 +69,8 @@
 				</div>
 
 				<div class="large-5 small-6 columns">
-					<table id="lomalelist" class="drb-standings">
-					<caption>Men Low Score Game (scratch)</caption>
-					<thead>
-						<tr>
-							<th></th>
-							<th>Player</th>
-							<th class="text-center">Score</th>
-						</tr>
-					</thead>
-					<tbody>
-
-					<?php
-						
-						$c = 1;
-
-						foreach ($this->data['mdatal'] as $maleDataLow) { 
-							echo "<tr>\n\t";
-							echo "<td class='text-right'>".$c."</td>\n\t";
-							echo "<td><a href='/drb/index.php/player/".$maleDataLow['pid']."'>".$maleDataLow['pname']."</a></td>\n\t";
-							echo "<td class='text-center'>".$maleDataLow['lscore']."</td>\n\t";
-							echo "</tr>\n";
-							$c++;
-						}
-
-					?>
-					</tbody>
-					</table>
-				</div>
-			</div>
-
-			<p><hr /></p>
-
-			<div class="row">
-				<div class="large-5 small-6 columns">
 					<table id="hifemalelist" class="drb-standings">
-					<caption>Women High Score Game (scratch)</caption>
+					<caption>Women High Game (scratch)</caption>
 					<thead>
 						<tr>
 							<th></th>
@@ -132,12 +98,47 @@
 					</table>
 				</div>
 
+			</div>
+
+			<p><hr /></p>
+
+			<div class="row">
+				<div class="large-5 small-6 columns">
+					<table id="lomalelist" class="drb-standings">
+					<caption>Men Low Game (scratch)</caption>
+					<thead>
+						<tr>
+							<th></th>
+							<th>Player</th>
+							<th class="text-center">Score</th>
+						</tr>
+					</thead>
+					<tbody>
+
+					<?php
+						
+						$c = 1;
+
+						foreach ($this->data['mdatal'] as $maleDataLow) { 
+							echo "<tr>\n\t";
+							echo "<td class='text-right'>".$c."</td>\n\t";
+							echo "<td><a href='/drb/index.php/player/".$maleDataLow['pid']."'>".$maleDataLow['pname']."</a></td>\n\t";
+							echo "<td class='text-center'>".$maleDataLow['lscore']."</td>\n\t";
+							echo "</tr>\n";
+							$c++;
+						}
+
+					?>
+					</tbody>
+					</table>
+				</div>			
+
 				<div class="large-2 hide-for-small hide-for-medium columns">
 				</div>
 
 				<div class="large-5 small-6 columns">
 					<table id="hifemalelist" class="drb-standings">
-					<caption>Women Low Score Game (scratch)</caption>
+					<caption>Women Low Game (scratch)</caption>
 					<thead>
 						<tr>
 							<th></th>
@@ -164,7 +165,77 @@
 					</tbody>
 					</table>
 				</div>
+
 			</div>
+
+			<p><hr /></p>
+
+			<div class="row">
+
+				<div class="large-5 small-6 columns">
+					<table id="himalelist" class="drb-standings">
+					<caption>Men High Series (scratch)</caption>
+					<thead>
+						<tr>
+							<th></th>
+							<th>Player</th>
+							<th class="text-center">Score</th>
+						</tr>
+					</thead>
+					<tbody>
+
+					<?php
+						
+						$c = 1;
+
+						foreach ($this->data['mdatah2'] as $maleDataHigh2) { 
+							echo "<tr>\n\t";
+							echo "<td class='text-right'>".$c."</td>\n\t";
+							echo "<td><a href='/drb/index.php/player/".$maleDataHigh2['pid']."'>".$maleDataHigh2['pname']."</a></td>\n\t";
+							echo "<td class='text-center'>".$maleDataHigh2['hscore']."</td>\n\t";
+							echo "</tr>\n";
+							$c++;
+						}
+
+					?>
+					</tbody>
+					</table>
+				</div>
+
+				<div class="large-2 hide-for-small hide-for-medium columns">
+				</div>
+
+				<div class="large-5 small-6 columns">
+					<table id="lomalelist" class="drb-standings">
+					<caption>Women High Series (scratch)</caption>
+					<thead>
+						<tr>
+							<th></th>
+							<th>Player</th>
+							<th class="text-center">Score</th>
+						</tr>
+					</thead>
+					<tbody>
+
+					<?php
+						
+						$c = 1;
+
+						foreach ($this->data['fdatah2'] as $femaleDataHigh2) { 
+							echo "<tr>\n\t";
+							echo "<td class='text-right'>".$c."</td>\n\t";
+							echo "<td><a href='/drb/index.php/player/".$femaleDataHigh2['pid']."'>".$femaleDataHigh2['pname']."</a></td>\n\t";
+							echo "<td class='text-center'>".$femaleDataHigh2['hscore']."</td>\n\t";
+							echo "</tr>\n";
+							$c++;
+						}
+
+					?>
+					</tbody>
+					</table>
+				</div>
+			</div>
+
 
         </section>
         <a class="exit-off-canvas"></a>
