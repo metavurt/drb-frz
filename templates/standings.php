@@ -28,7 +28,7 @@
                 <li><a href="/drb/">Weekly Standings</a></li>
                 <li><a href="index.php/teams">Teams</a></li>
                 <li><a href="index.php/players">Players</a></li>
-                <li><a href="index.php/vs">Weekly Matchups</a></li>
+                <li><a href="index.php/hilos">Highs / Lows</a></li>
             </ul>
         </aside>
 

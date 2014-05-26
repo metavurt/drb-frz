@@ -218,6 +218,91 @@ $app->get('/vs', function() use ($app) {
 
 });
 
+$app->get('/hilos', function() use ($app) {
+
+	require_once 'php/drbfz.php';
+	$db = connect_db();
+
+	$m = "m";
+	$f = "f";
+
+	$r = $db->query('SELECT DISTINCT bnp_players.pid as pid, pname, GREATEST(MAX(g1), MAX(g2), MAX(g3)) AS hscore
+					FROM bnp_players
+					JOIN bnp_stats
+					ON bnp_stats.pid = bnp_players.pid
+                    WHERE bnp_players.mf = "'.$m.'"
+					GROUP BY bnp_players.pid
+                    ORDER BY hscore DESC LIMIT 10');
+
+	while( $row = $r->fetch_array(MYSQLI_ASSOC) ) {
+		$mdatah[] = $row;
+	}
+
+	$r2 = $db->query('SELECT DISTINCT bnp_players.pid as pid, pname, MAX( g1 + g2 + g3 ) AS hscore
+					FROM bnp_players
+					JOIN bnp_stats
+					ON bnp_stats.pid = bnp_players.pid
+                    WHERE bnp_players.mf = "'.$m.'"
+					GROUP BY bnp_players.pid
+                    ORDER BY hscore DESC LIMIT 10');
+
+	while( $row2 = $r2->fetch_array(MYSQLI_ASSOC) ) {
+		$mdatah2[] = $row2;
+	}
+	
+
+	$s = $db->query('SELECT DISTINCT bnp_players.pid as pid, pname, GREATEST(MAX(g1), MAX(g2), MAX(g3)) AS hscore
+					FROM bnp_players
+					JOIN bnp_stats
+					ON bnp_stats.pid = bnp_players.pid
+                    WHERE bnp_players.mf = "'.$f.'"
+					GROUP BY bnp_players.pid
+                    ORDER BY hscore DESC LIMIT 10');
+
+	while( $sow = $s->fetch_array(MYSQLI_ASSOC) ) {
+		$fdatah[] = $sow;
+	}
+
+	$s2 = $db->query('SELECT DISTINCT bnp_players.pid as pid, pname, MAX( g1 + g2 + g3 ) AS hscore
+					FROM bnp_players
+					JOIN bnp_stats
+					ON bnp_stats.pid = bnp_players.pid
+                    WHERE bnp_players.mf = "'.$f.'"
+					GROUP BY bnp_players.pid
+                    ORDER BY hscore DESC LIMIT 10');
+
+	while( $sow2 = $s2->fetch_array(MYSQLI_ASSOC) ) {
+		$fdatah2[] = $sow2;
+	}	
+
+	$t = $db->query('SELECT DISTINCT bnp_players.pid as pid, pname, LEAST(MIN(g1), MIN(g2), MIN(g3)) AS lscore
+					FROM bnp_players
+					JOIN bnp_stats
+					ON bnp_stats.pid = bnp_players.pid
+                    WHERE bnp_players.mf = "'.$m.'"
+					GROUP BY bnp_players.pid
+                    ORDER BY lscore ASC LIMIT 10');
+
+	while( $tow = $t->fetch_array(MYSQLI_ASSOC) ) {
+		$mdatal[] = $tow;
+	}
+
+	$v = $db->query('SELECT DISTINCT bnp_players.pid as pid, pname, LEAST(MIN(g1), MIN(g2), MIN(g3)) AS lscore
+					FROM bnp_players
+					JOIN bnp_stats
+					ON bnp_stats.pid = bnp_players.pid
+                    WHERE bnp_players.mf = "'.$f.'"
+					GROUP BY bnp_players.pid
+                    ORDER BY lscore ASC LIMIT 10');
+
+	while( $vow = $v->fetch_array(MYSQLI_ASSOC) ) {
+		$fdatal[] = $vow;
+	}
+
+	$app->render('hilos.php', array('page-title' => 'DRB THU Mixed', 'mdatah' => $mdatah, 'mdatah2' => $mdatah2, 'fdatah' => $fdatah, 'fdatah2' => $fdatah2, 'mdatal' => $mdatal, 'fdatal' => $fdatal));
+
+});
+
 
 $app->run();
 

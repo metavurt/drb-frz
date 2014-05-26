@@ -30,6 +30,7 @@
                 <li><a href="/drb/">Weekly Standings</a></li>
                 <li><a href="/drb/index.php/teams">Teams</a></li>
                 <li><a href="/drb/index.php/players">Players</a></li>
+                <li><a href="/drb/index.php/hilos">Highs / Lows</a></li>
             </ul>
         </aside>
 
@@ -100,12 +101,34 @@
 						            			echo "<td class='text-center'>".$gameData['g1']."</td>\n";
 						            			echo "</tr>\n\t";
 						            		} else {
-						            			echo "<tr>\n\t";
-						            			echo "<td class='text-center'>".$wkCount."</td>\n";
-						            			echo "<td class='text-center'>".$nd."</td>\n";
-						            			echo "<td class='text-center'>".$nd."</td>\n";
-						            			echo "<td class='text-center'>".$nd."</td>\n";
-						            			echo "</tr>\n\t";						            			
+						            			if($gameData['wid'] > $wkCount) {
+							            			echo "<tr>\n\t";
+							            			echo "<td class='text-center'>".$wkCount."</td>\n";
+							            			echo "<td class='text-center'>".$nd."</td>\n";
+							            			echo "<td class='text-center'>".$nd."</td>\n";
+							            			echo "<td class='text-center'>".$nd."</td>\n";
+							            			echo "</tr>\n\t";
+							            			echo "<tr>\n\t";
+							            			echo "<td class='text-center'>".$gameData['wid']."</td>\n";
+							            			echo "<td class='text-center'>".$gameData['g3']."</td>\n";
+							            			echo "<td class='text-center'>".$gameData['g2']."</td>\n";
+							            			echo "<td class='text-center'>".$gameData['g1']."</td>\n";
+							            			echo "</tr>\n\t";							            			
+						            			}
+						            			if($gameData['wid'] < $wkCount) {
+							            			echo "<tr>\n\t";
+							            			echo "<td class='text-center'>".$gameData['wid']."</td>\n";
+							            			echo "<td class='text-center'>".$gameData['g3']."</td>\n";
+							            			echo "<td class='text-center'>".$gameData['g2']."</td>\n";
+							            			echo "<td class='text-center'>".$gameData['g1']."</td>\n";
+							            			echo "</tr>\n\t";
+							            			echo "<tr>\n\t";
+							            			echo "<td class='text-center'>".$wkCount."</td>\n";
+							            			echo "<td class='text-center'>".$nd."</td>\n";
+							            			echo "<td class='text-center'>".$nd."</td>\n";
+							            			echo "<td class='text-center'>".$nd."</td>\n";
+							            			echo "</tr>\n\t";
+						            			}
 						            		}
 						            		$wkCount++;
 					            		}
@@ -126,14 +149,32 @@
 
 									<?php
 
-					            		$wkCount = 0;
+					            		$wkCount = 1;
+					            		$nd = null;
 
 					            		foreach ($this->data['gdata'] as $gameData) {
-					            			$wkCount++;
-					            			echo "<tr>\n\t";
-					            			echo "<td class='text-center'>".$wkCount."</td>\n";
-					            			echo "<td class='text-center'>".$gameData['hnd']."</td>\n";
-					            			echo "</tr>\n\t";
+					            			if($wkCount == $gameData['wid']) {
+						            			echo "<tr>\n\t";
+						            			echo "<td class='text-center'>".$gameData['wid']."</td>\n";
+						            			echo "<td class='text-center'>".$gameData['hnd']."</td>\n";
+						            			echo "</tr>\n\t";
+						            			$wkCount++;
+						            		} else {
+						            			$tempWID = $gameData['wid'];
+						            			while($wkCount < $tempWID) {
+													echo "<tr>\n\t";
+							            			echo "<td class='text-center'>".$wkCount."</td>\n";
+							            			echo "<td class='text-center'>".$nd."</td>\n";													
+							            			echo "</tr>\n\t";
+							            			echo "</tr>\n\t";
+							            			$wkCount++;						            				
+						            			}
+						            			echo "<tr>\n\t";
+						            			echo "<td class='text-center'>".$gameData['wid']."</td>\n";
+						            			echo "<td class='text-center'>".$gameData['hnd']."</td>\n";
+						            			echo "</tr>\n\t";
+						            			$wkCount++;
+						            		}
 					            		}
 
 					            	?>
@@ -250,7 +291,7 @@ $(document).foundation();
 	        },
 	        tooltip: {
 	            formatter: function() {
-	                return '<strong>'+this.point.y+'</strong>'
+	                return this.point.y;
 	            }
 	        }
 	    });
