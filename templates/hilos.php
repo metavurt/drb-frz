@@ -35,7 +35,7 @@
         <section class="main-section">
 
 			<div class="row">
-				<div class="large-5 small-6 columns">
+				<div class="large-5 small-6 alpha-horizontal columns">
 					<table id="himalelist" class="drb-standings">
 					<caption>Men High Game (scratch)</caption>
 					<thead>
@@ -54,7 +54,7 @@
 						foreach ($this->data['mdatah'] as $maleDataHigh) { 
 							echo "<tr>\n\t";
 							echo "<td class='text-right'>".$c."</td>\n\t";
-							echo "<td><a href='/drb/index.php/player/".$maleDataHigh['pid']."'>".$maleDataHigh['pname']."</a></td>\n\t";
+							echo "<td><a href='/drb/index.php/player/".$maleDataHigh['pid']."'>".substr($maleDataHigh['pname'], 0, 9)."</a></td>\n\t";
 							echo "<td class='text-center'>".$maleDataHigh['hscore']."</td>\n\t";
 							echo "</tr>\n";
 							$c++;
@@ -68,7 +68,7 @@
 				<div class="large-2 hide-for-small hide-for-medium columns">
 				</div>
 
-				<div class="large-5 small-6 columns">
+				<div class="large-5 small-6 omega-horizontal columns">
 					<table id="hifemalelist" class="drb-standings">
 					<caption>Women High Game (scratch)</caption>
 					<thead>
@@ -87,7 +87,7 @@
 						foreach ($this->data['fdatah'] as $femaleDataHigh) { 
 							echo "<tr>\n\t";
 							echo "<td class='text-right'>".$c."</td>\n\t";
-							echo "<td><a href='/drb/index.php/player/".$femaleDataHigh['pid']."'>".$femaleDataHigh['pname']."</a></td>\n\t";
+							echo "<td><a href='/drb/index.php/player/".$femaleDataHigh['pid']."'>".substr($femaleDataHigh['pname'], 0, 9)."</a></td>\n\t";
 							echo "<td class='text-center'>".$femaleDataHigh['hscore']."</td>\n\t";
 							echo "</tr>\n";
 							$c++;
@@ -103,7 +103,7 @@
 			<p><hr /></p>
 
 			<div class="row">
-				<div class="large-5 small-6 columns">
+				<div class="large-5 small-6 alpha-horizontal columns">
 					<table id="lomalelist" class="drb-standings">
 					<caption>Men Low Game (scratch)</caption>
 					<thead>
@@ -122,7 +122,7 @@
 						foreach ($this->data['mdatal'] as $maleDataLow) { 
 							echo "<tr>\n\t";
 							echo "<td class='text-right'>".$c."</td>\n\t";
-							echo "<td><a href='/drb/index.php/player/".$maleDataLow['pid']."'>".$maleDataLow['pname']."</a></td>\n\t";
+							echo "<td><a href='/drb/index.php/player/".$maleDataLow['pid']."'>".substr($maleDataLow['pname'], 0, 9)."</a></td>\n\t";
 							echo "<td class='text-center'>".$maleDataLow['lscore']."</td>\n\t";
 							echo "</tr>\n";
 							$c++;
@@ -136,7 +136,7 @@
 				<div class="large-2 hide-for-small hide-for-medium columns">
 				</div>
 
-				<div class="large-5 small-6 columns">
+				<div class="large-5 small-6 omega-horizontal columns">
 					<table id="hifemalelist" class="drb-standings">
 					<caption>Women Low Game (scratch)</caption>
 					<thead>
@@ -155,7 +155,7 @@
 						foreach ($this->data['fdatal'] as $femaleDataLow) { 
 							echo "<tr>\n\t";
 							echo "<td class='text-right'>".$c."</td>\n\t";
-							echo "<td><a href='/drb/index.php/player/".$femaleDataLow['pid']."'>".$femaleDataLow['pname']."</a></td>\n\t";
+							echo "<td><a href='/drb/index.php/player/".$femaleDataLow['pid']."'>".substr($femaleDataLow['pname'], 0, 9)."</a></td>\n\t";
 							echo "<td class='text-center'>".$femaleDataLow['lscore']."</td>\n\t";
 							echo "</tr>\n";
 							$c++;
@@ -172,7 +172,7 @@
 
 			<div class="row">
 
-				<div class="large-5 small-6 columns">
+				<div class="large-5 small-6 alpha-horizontal columns">
 					<table id="himalelist" class="drb-standings">
 					<caption>Men High Series (scratch)</caption>
 					<thead>
@@ -191,7 +191,7 @@
 						foreach ($this->data['mdatah2'] as $maleDataHigh2) { 
 							echo "<tr>\n\t";
 							echo "<td class='text-right'>".$c."</td>\n\t";
-							echo "<td><a href='/drb/index.php/player/".$maleDataHigh2['pid']."'>".$maleDataHigh2['pname']."</a></td>\n\t";
+							echo "<td><a href='/drb/index.php/player/".$maleDataHigh2['pid']."'>".substr($maleDataHigh2['pname'], 0, 9)."</a></td>\n\t";
 							echo "<td class='text-center'>".$maleDataHigh2['hscore']."</td>\n\t";
 							echo "</tr>\n";
 							$c++;
@@ -205,7 +205,7 @@
 				<div class="large-2 hide-for-small hide-for-medium columns">
 				</div>
 
-				<div class="large-5 small-6 columns">
+				<div class="large-5 small-6 omega-horizontal columns">
 					<table id="lomalelist" class="drb-standings">
 					<caption>Women High Series (scratch)</caption>
 					<thead>
@@ -224,7 +224,7 @@
 						foreach ($this->data['fdatah2'] as $femaleDataHigh2) { 
 							echo "<tr>\n\t";
 							echo "<td class='text-right'>".$c."</td>\n\t";
-							echo "<td><a href='/drb/index.php/player/".$femaleDataHigh2['pid']."'>".$femaleDataHigh2['pname']."</a></td>\n\t";
+							echo "<td><a href='/drb/index.php/player/".$femaleDataHigh2['pid']."'>".substr($femaleDataHigh2['pname'], 0, 9)."</a></td>\n\t";
 							echo "<td class='text-center'>".$femaleDataHigh2['hscore']."</td>\n\t";
 							echo "</tr>\n";
 							$c++;
