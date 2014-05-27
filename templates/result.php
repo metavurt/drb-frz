@@ -274,8 +274,8 @@ $(function () {
     var chart,
         categories = ['Gm1', 'Gm2', 'Gm3'];
 
-    var team1Name = '';
-    var team2Name = '';
+    var team1Name = 'Amigos';
+    var team2Name = 'Gutters';
 
     $(document).ready(function() {
         $('#boxscore').highcharts({
@@ -283,7 +283,7 @@ $(function () {
                 type: 'bar'
             },
             title: {
-                text: 'Three & A Half Amigos vs Guttermouth'
+                text: team1Name+' vs '+team2Name
             },
             xAxis: [{
                 categories: categories,
