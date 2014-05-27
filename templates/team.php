@@ -221,7 +221,10 @@ $(function () {
 			allowDecimals: false,
         	title: {
         		text: 'Total Pins'
-        	}
+        	},
+        	min: 2000,
+        	max: 2600,
+        	tickInterval: 100
         },
         tooltip: {
             formatter: function() {
