@@ -158,11 +158,7 @@ $app->get('/vs/:t1/:t2/:wk', function($t1,$t2,$wk) use ($app) {
 	require_once 'php/drbfz.php';
 	$db = connect_db();
 
-	$r1 = $db->query('SELECT tname, bnp_players.pid as pid, pname, g1, g2, g3,
-					SUM(g1 + g2 + g3) as tp,
-                    ROUND( SUM(g1 + g2 + g3) + SUM(hnd)/COUNT(wid), 0) as tph,
-					ROUND(SUM(g1 + g2 + g3)/(COUNT(wid)*3), 0) as avrg,
-					ROUND(SUM(hnd)/COUNT(wid), 0) as h
+	$r1 = $db->query('SELECT tname, bnp_players.pid as pid, pname, g1, g2, g3, hnd
 					FROM bnp_teams, bnp_players
 					JOIN bnp_stats
 					ON bnp_stats.pid = bnp_players.pid
@@ -174,11 +170,7 @@ $app->get('/vs/:t1/:t2/:wk', function($t1,$t2,$wk) use ($app) {
 		$data1[] = $row1;
 	}
 
-	$r2 = $db->query('SELECT tname, bnp_players.pid as pid, pname, g1, g2, g3,
-					SUM(g1 + g2 + g3) as tp,
-                    ROUND( SUM(g1 + g2 + g3) + SUM(hnd)/COUNT(wid), 0) as tph,
-					ROUND(SUM(g1 + g2 + g3)/(COUNT(wid)*3), 0) as avrg,
-					ROUND(SUM(hnd)/COUNT(wid), 0) as h
+	$r2 = $db->query('SELECT tname, bnp_players.pid as pid, pname, g1, g2, g3, hnd
 					FROM bnp_teams, bnp_players
 					JOIN bnp_stats
 					ON bnp_stats.pid = bnp_players.pid
@@ -189,6 +181,7 @@ $app->get('/vs/:t1/:t2/:wk', function($t1,$t2,$wk) use ($app) {
 	while ( $row2 = $r2->fetch_array(MYSQLI_ASSOC) ) {
 		$data2[] = $row2;
 	}
+
 
 	$app->render('result.php', array('page_title' => 'DRB Thur Mixed Result','data1' => $data1, 'data2' => $data2));	
 
