@@ -152,6 +152,7 @@
 				<div class="large-12 small-12 alpha-horizontal omega-horizontal columns">
 
 					<div id="boxscore" style="width:100%; height:20em;"></div>
+					<h4>If chart isn't drawing, please rotate your device to landscape</h4>
 
 				</div>
 			</div>
