@@ -1,3 +1,5 @@
 [27-May-2014 20:15:30 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home/weo3/public_html/drb/templates/result.php on line 379
 [27-May-2014 20:15:32 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home/weo3/public_html/drb/templates/result.php on line 379
 [27-May-2014 20:15:40 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home/weo3/public_html/drb/templates/result.php on line 379
+[27-May-2014 22:08:25 America/Chicago] PHP Fatal error:  Unsupported operand types in /home/weo3/public_html/drb/templates/result.php on line 95
+[27-May-2014 22:08:34 America/Chicago] PHP Fatal error:  Unsupported operand types in /home/weo3/public_html/drb/templates/result.php on line 95

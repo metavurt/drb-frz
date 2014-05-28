@@ -46,12 +46,18 @@
 						$th1 = 0;
 						$i = 0;
 
+						$team1TotalPins = [];
+						$team1Points = 0;
+
 						foreach ($this->data['data1'] as $teamData1) { 
 							$tname1 = $teamData1['tname'];
 							$pn = $teamData1['pname'];
 							$ph = $teamData1['hnd'];
 							$th1 += $ph;
 							$pp = '['.(($teamData1['g1'] + $teamData1['hnd']) * -1).','.(($teamData1['g2'] + $teamData1['hnd']) * -1).','.(($teamData1['g3'] + $teamData1['hnd']) * -1).']';
+							
+							array_push($team1TotalPins, ($teamData1['g1'] + $teamData1['g2'] + $teamData1['g3'] + ($teamData1['hnd'] * 3)));
+
 							if($i == 0) {
 								$team1Pins .= $pp; // first one so no comma in front
 								$team1Names .= '\''.$pn.'\'';
@@ -76,12 +82,18 @@
 						$j = 0;
 						$pp = '';
 
+						$team2TotalPins = [];
+						$team2Points = 0;
+
 						foreach ($this->data['data2'] as $teamData2) {
 							$tname2 = $teamData2['tname'];
 							$pn = $teamData2['pname'];
 							$ph = $teamData2['hnd'];
 							$th2 += $ph;
 							$pp = '['.($teamData2['g1'] + $teamData2['hnd']).','.($teamData2['g2'] + $teamData2['hnd']).','.($teamData2['g3'] + $teamData2['hnd']).']';
+
+							array_push($team2TotalPins, ($teamData2['g1'] + $teamData2['g2'] + $teamData2['g3'] + ($teamData2['hnd'] * 3)));
+
 							if($j == 0) {
 								$team2Pins .= $pp; // first one so no comma in front
 								$team2Names .= '\''.$pn.'\'';
@@ -105,10 +117,34 @@
 				<div class="large-12 small-12 alpha-horizontal omega-horizontal columns">
 					<!-- put shit here -->
 
+					<script>
+						var t1tpns = '<?php echo $team1TotalPins[0].", ".$team1TotalPins[1].", ".$team1TotalPins[2]; ?>';
+						var t2tpns = '<?php echo $team2TotalPins[0].", ".$team2TotalPins[1].", ".$team2TotalPins[2]; ?>';
+
+					</script>
+
+					<?php 
+
+						for($x=0; $x<3; $x++) {
+							if($team1TotalPins[$x] > $team2TotalPins[$x]) {
+								$team1Points += 1;
+							} else {
+								$team2Points += 1;
+							}
+						}
+
+						if( ($team1TotalPins[0] + $team1TotalPins[1] + $team1TotalPins[2]) > ($team2TotalPins[0] + $team2TotalPins[1] + $team2TotalPins[2]) ) {
+							$team1Points += 1;
+						} else {
+							$team2Points += 1;
+						}
+
+						echo "<h3>".$tname1.": ".$team1Points."&nbsp;&nbsp;&nbsp;&nbsp;".$tname2.": ".$team2Points."</h3>";
+
+					?>
 
 
 
-					
 				</div>
 			</div>
 
