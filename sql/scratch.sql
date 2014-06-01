@@ -1,44 +1,17 @@
-SELECT SUM(bnp_stats.g1 + bnp_stats.hnd) AS g1Total
-		FROM bnp_teams
-			JOIN bnp_players
-				ON bnp_players.tid = bnp_teams.tid
-			JOIN bnp_stats
-				ON bnp_stats.pid = bnp_players.pid
-		WHERE bnp_teams.tid = 1 AND bnp_stats.wid = 1
+insert into bnp_points values('', 7, 1, 4, 0, 2292);
+insert into bnp_points values('', 7, 2, 1, 3, 2171);
+insert into bnp_points values('', 7, 3, 3, 1, 2220);
+insert into bnp_points values('', 7, 4, 1, 3, 2291);
+insert into bnp_points values('', 7, 5, 1, 3, 2178);
+insert into bnp_points values('', 7, 6, 0, 4, 2084);
+insert into bnp_points values('', 7, 7, 3, 1, 2269);
+insert into bnp_points values('', 7, 8, 0, 4, 0);
+insert into bnp_points values('', 7, 9, 3, 1, 2367);
+insert into bnp_points values('', 7, 10, 3, 1, 2257);
+insert into bnp_points values('', 7, 11, 3, 1, 2115);
+insert into bnp_points values('', 7, 12, 4, 0, 2414);
+insert into bnp_points values('', 7, 13, 3, 1, 2215);
+insert into bnp_points values('', 7, 14, 1, 3, 2184);
+insert into bnp_points values('', 7, 15, 1, 3, 2113);
+insert into bnp_points values('', 7, 16, 1, 3, 2160);
 
-
-
-SELECT bnp_teams.tid, tname, SUM(twins) as wins, sum(tloss) as loss,
-FORMAT(100 * SUM(twins)/(SUM(twins) + SUM(tloss)), 2) as pcnt
-FROM bnp_teams
-JOIN bnp_points
-ON bnp_points.tid = bnp_teams.tid
-GROUP BY tid
-ORDER BY wins DESC
-
-SELECT bnp_players.pid, pname, SUM(g1 + g2 + g3) as tpins, COUNT(wid)*3 as gms,
-ROUND(SUM(g1 + g2 + g3)/(COUNT(wid)*3), 0) as avgs,
-ROUND(SUM(hnd)/COUNT(wid), 0) as hnd
-FROM bnp_players
-JOIN bnp_stats
-ON bnp_stats.pid = bnp_players.pid
-GROUP BY pid
-
-
-SELECT bnp_teams.tid, tname, SUM(twins) as wins, sum(tloss) as loss,
-FORMAT(100 * SUM(twins)/(SUM(twins) + SUM(tloss)), 2) as pcnt,
-SUM(tpins) as tpins
-FROM bnp_teams
-JOIN bnp_points
-ON bnp_points.tid = bnp_teams.tid
-GROUP BY tid
-ORDER BY wins DESC, tpins DESC
-
-SELECT bnp_players.pid, pname, SUM(g1 + g2 + g3) as tpins, COUNT(wid)*3 as gms,
-ROUND(SUM(g1 + g2 + g3)/(COUNT(wid)*3), 0) as avgs,
-ROUND(SUM(hnd)/COUNT(wid), 0) as hnd
-FROM bnp_players
-JOIN bnp_stats
-ON bnp_stats.pid = bnp_players.pid
-WHERE bnp_players.tid = $teamID
-GROUP BY pid
