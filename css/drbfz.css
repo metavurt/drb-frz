@@ -17,6 +17,10 @@
 	1. HTML
 ****************************************************/
 
+h2 {
+	margin-bottom: 0;
+}
+
 table {
 	width: 100%;
 	border: none;
@@ -64,8 +68,31 @@ button:hover, button:focus {
 	3. Navigation
 ****************************************************/
 
+.weekly-nav {
+	margin: 0;
+}
 
+	.weekly-nav li {
+		float: left;
+		list-style-type: none;
+		margin: 0 .5em;
+	}
 
+	.weekly-nav li a {
+		display: block;
+		padding: .75em .5em;
+		font-size: 1.2em;
+		line-height: 0;
+		border: 1px solid #930;
+		border-radius: 2px;
+	}
+
+	.weekly-nav li.curr-week {
+		background-color: #930;
+		padding: 0.175em 0.75em;
+		color: #FFF;
+		border-radius: 2px;
+	}
 
 /****************************************************
 	4. Modular
@@ -109,6 +136,10 @@ button:hover, button:focus {
 
 #drb-weekly-handicap {
 	display: none;
+}
+
+.drb-standings {
+	margin-top: 1em;
 }
 
 .drb-team-statistics {

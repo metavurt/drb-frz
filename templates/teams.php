@@ -28,6 +28,8 @@
         <aside class="left-off-canvas-menu drb-bg-drd">
             <ul class="off-canvas-list">
                 <li><a href="/drb/">Weekly Standings</a></li>
+                <li><a href="/drb/index.php/vs">Weekly Matchups</a></li>
+                <li><a href="/drb/index.php/teams">Teams</a></li>
                 <li><a href="/drb/index.php/players">Players</a></li>
                 <li><a href="/drb/index.php/hilos">Highs / Lows</a></li>
             </ul>

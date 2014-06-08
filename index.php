@@ -35,7 +35,7 @@ $app->get('/', function () use ($app) {
 	require_once 'php/drbfz.php';
 	$db = connect_db();
 
-	$r = $db->query('SELECT bnp_teams.tid, tname,
+	$r = $db->query('SELECT bnp_teams.tid, tname, MAX(wid) AS wid,
 					SUM(twins) AS wins, SUM(tloss) AS loss, FORMAT(100 * SUM(twins)/(SUM(twins) + SUM(tloss)), 2) as pcnt,
 					SUM(tpins) AS tpins FROM bnp_teams JOIN bnp_points
 					ON bnp_points.tid = bnp_teams.tid
@@ -49,6 +49,29 @@ $app->get('/', function () use ($app) {
 	$app->render('standings.php', array('page_title' => 'DRB Team Standings','data' => $data));
 	
 });
+
+$app->get('/:week', function ($week) use ($app) {
+
+	require_once 'php/drbfz.php';
+	$db = connect_db();
+
+	$r = $db->query('SELECT bnp_teams.tid, tname, MAX(wid) as wid,
+					SUM(twins) AS wins, SUM(tloss) AS loss, FORMAT(100 * SUM(twins)/(SUM(twins) + SUM(tloss)), 2) as pcnt,
+					SUM(tpins) AS tpins FROM bnp_teams JOIN bnp_points
+					ON bnp_points.tid = bnp_teams.tid
+					WHERE wid <= '.$week.'
+					GROUP BY tid
+					ORDER BY wins DESC, tpins DESC' );
+
+	while ( $row = $r->fetch_array(MYSQLI_ASSOC) ) {
+		$data[] = $row;
+	}
+
+	$app->render('standing.php', array('page_title' => 'DRB Team Standings','data' => $data));
+	
+});
+
+
 
 $app->get('/players', function () use ($app) {
 	

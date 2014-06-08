@@ -35,12 +35,47 @@
 
         <section class="main-section">
             <!-- MAIN CONTENT GOES HERE -->
+            <?php
+
+            	$widnames = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight'];
+
+				foreach ($this->data['data'] as $tData) { 
+					$wid = $tData['wid'];
+				}
+			?>
 			<div class="row">
 				<div class="large-12 small-12 alpha-horizontal omega-horizontal columns">
+					<div class="row">
+						<div class="large-12 small-12 alpha-vertical columns">
+
+							<h2>Week <?php echo $wid; ?> Standings:</h2>
+							<ul class="weekly-nav">
+
+								<?php
+
+
+									for($i=1; $i<=8; $i++) {
+										if($i != $wid) {
+											echo "<li><a href='/drb/index.php/".$i."'>".$i."</a></li>\n";
+										} else {
+											echo "<li class='curr-week'>".$i."</li>\n";
+										}
+									}
+								?>
+							</ul>
+						</div>
+					</div>
+
 					<table class="drb-standings">
 					<thead>
 						<tr>
-                            <th class="text-center"></th>
+							<th></th>
+							<th class="text-right">#</th>
+							<th>Team</th>
+							<th class="text-center">W</th>
+							<th class="text-center">L</th>
+							<th class="text-center">Pct</th>
+							<th class="text-center">Total Pins</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -49,24 +84,17 @@
 						
 						$c = 1;
 
-						foreach ($this->data['data'] as $matchData) {
-                            if($c == 1) {
-                                echo "<tr>\n\t";
-                                echo "<td class='text-center' colspan='3'><h3>Week ".$matchData['wid']." Matchups</h3></td>\n\t";
-                                echo "</tr>\n\t";                                
-                            }
-                            echo "<tr>\n\t";
-                            echo "<td class='text-right'><a href='/drb/index.php/vs/".$matchData['tid1']."/".$matchData['tid2']."/".$matchData['wid']."'>".$matchData['team1']."</a></td>";
-                            echo "<td class='text-center'> <h4><a href='/drb/index.php/vs/".$matchData['tid1']."/".$matchData['tid2']."/".$matchData['wid']."'>vs</a></h4> </td>";
-                            echo "<td class='text-left'><a href='/drb/index.php/vs/".$matchData['tid1']."/".$matchData['tid2']."/".$matchData['wid']."'>".$matchData['team2']."</a></td>\n\t";
+						foreach ($this->data['data'] as $teamData) { 
+							echo "<tr>\n\t";
+							echo "<td>".$c."</td>\n\t";
+							echo "<td class='text-right'>".$teamData['tid']."</td>\n\t";
+							echo "<td><a href='/drb/index.php/team/".$teamData['tid']."'>".$teamData['tname']."</a></td>\n\t";
+							echo "<td class='text-center'>".$teamData['wins']."</td>\n\t";
+							echo "<td class='text-center'>".$teamData['loss']."</td>\n\t";
+							echo "<td class='text-center'>".$teamData['pcnt']."</td>\n\t";
+							echo "<td class='text-center'>".$teamData['tpins']."</td>\n";
 							echo "</tr>\n";
 							$c++;
-                            if($c > 8) {
-                                $c = 1;
-                                echo "<tr>\n\t";
-                                echo "<td class='text-center' colspan='3'></td>\n\t";
-                                echo "</tr>\n\t";                                                                
-                            }
 						}
 
 					?>
@@ -75,7 +103,8 @@
 				</div>
 			</div>
 
-        </section><a class="exit-off-canvas"></a>
+        </section>
+        <a class="exit-off-canvas"></a>
     </div>
 </div>
 

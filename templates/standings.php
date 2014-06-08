@@ -26,16 +26,46 @@
         <aside class="left-off-canvas-menu drb-bg-drd">
             <ul class="off-canvas-list">
                 <li><a href="/drb/">Weekly Standings</a></li>
-                <li><a href="index.php/teams">Teams</a></li>
-                <li><a href="index.php/players">Players</a></li>
-                <li><a href="index.php/hilos">Highs / Lows</a></li>
+                <li><a href="/drb/index.php/vs">Weekly Matchups</a></li>
+                <li><a href="/drb/index.php/teams">Teams</a></li>
+                <li><a href="/drb/index.php/players">Players</a></li>
+                <li><a href="/drb/index.php/hilos">Highs / Lows</a></li>
             </ul>
         </aside>
 
         <section class="main-section">
             <!-- MAIN CONTENT GOES HERE -->
+            <?php
+
+            	$widnames = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight'];
+
+				foreach ($this->data['data'] as $tData) { 
+					$wid = $tData['wid'];
+				}
+			?>
 			<div class="row">
 				<div class="large-12 small-12 alpha-horizontal omega-horizontal columns">
+					<div class="row">
+						<div class="large-12 small-12 alpha-vertical columns">
+							<h2>Week <?php echo $wid; ?> Standings:</h2>
+
+							<ul class="weekly-nav">
+
+								<?php
+
+
+									for($i=1; $i<=8; $i++) {
+										if($i != $wid) {
+											echo "<li><a href='/drb/index.php/".$i."'>".$i."</a></li>\n";
+										} else {
+											echo "<li class='curr-week'>".$i."</li>\n";
+										}
+									}
+								?>
+							</ul>
+						</div>
+					</div>
+
 					<table class="drb-standings">
 					<thead>
 						<tr>
